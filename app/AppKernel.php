@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new adminBundle\adminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
