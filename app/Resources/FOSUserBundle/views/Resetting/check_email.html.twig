@@ -1,9 +1,10 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "adminBundle/Userlayout/layou_reset_request.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-<p>
+
 {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
-</p>
+<a href="{{ path('fos_user_security_login') }}">Login ?</a><br>
+
 {% endblock %}
