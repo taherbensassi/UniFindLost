@@ -2,6 +2,7 @@ admin:
     resource: "@adminBundle/Controller/"
     type:     annotation
 
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
@@ -9,4 +10,3 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-

@@ -23,6 +23,17 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
+
     }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+
 }
