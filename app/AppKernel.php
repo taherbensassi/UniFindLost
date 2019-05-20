@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new adminBundle\adminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
 
         ];
 

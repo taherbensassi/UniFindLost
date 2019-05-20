@@ -76,7 +76,7 @@ sensio_framework_extra:
 
 jms_i18n_routing:
     default_locale: "%locale%"
-    locales: [en, de]
+    locales: [en, de ,fr]
     strategy: prefix
 
 
