@@ -25,13 +25,11 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $user_id = $user->getId();
+
         $sf_Users = $em->getRepository('adminBundle:User')->findAll();
 
         return $this->render('adminBundle/user/index.html.twig', array(
             'active'=>'users',
-            'user_id'=>$user_id,
             'users'=>$sf_Users,
 
         ));
@@ -40,7 +38,7 @@ class UserController extends Controller
     /**
      * Creates a new user entity.
      *
-     * @Route("/new", name="user_new")
+     * @Route("/create", name="user_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -57,7 +55,7 @@ class UserController extends Controller
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
 
-        return $this->render('user/new.html.twig', array(
+        return $this->render('adminBundle/user/new.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
         ));
@@ -164,7 +162,7 @@ class UserController extends Controller
                 $em->persist($user);
                 $em->flush();
             }
-            $response = json_encode(array('status' => 'success'));
+            $response = json_encode(array('User' => $user->getUsername(),'status'=>'Has been updated'));
             return new Response($response, 200);
         }else{
             $response = json_encode(array('status' => 'error'));

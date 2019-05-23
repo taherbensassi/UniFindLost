@@ -6,10 +6,7 @@
         #users_filter{
             float: right;
         }
-
         div.dataTables_paginate {float: right}
-
-
     </style>
 {% endblock %}
 {% block body %}
@@ -32,7 +29,7 @@
 
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="sonata-action-element" href="/admin/app/user-user/create"><i class="fa fa-plus-circle"></i>
+                            <li><a class="sonata-action-element" href="{{ path('user_new') }}"><i class="fa fa-plus-circle"></i>
                                     Add new</a></li>
                         </ul>
 
@@ -87,8 +84,7 @@ width: 100%;">
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <a  id="btnDelete"  class="btn btn-outline btn-danger deleteuser"  data-id="{{ user.id  }}" data-toggle="modal" data-target="#myModalDelete">  <i class="fa fa-trash"></i></a>
-
+                                    <a  id="btnDelete"  class="btn btn-danger"  data-id="{{ user.id  }}" data-toggle="modal" data-target="#myModalDelete">  <i class="fa fa-trash"></i></a>
                                 </td>
 
                             </tr>
@@ -121,8 +117,7 @@ width: 100%;">
 <script>
 
 
-    $(document).ready(function() {
-
+$(document).ready(function() {
         //table users
         var table = $('#users').DataTable( {
             'paging'      : true,
@@ -133,8 +128,6 @@ width: 100%;">
             'autoWidth'   : true,
             'responsive': true,
         } );
-
-
         //edit enabled
         $.fn.editable.defaults.mode = 'inline';
         $('.status').editable({
@@ -147,10 +140,20 @@ width: 100%;">
             ],
             pk: $(this).data('pk'),
             url: Routing.generate('updateuserstatus'),
+            success: function(response, newValue) {
+                var obj = JSON.parse(response);
+                //object javascrit
+                toastr.success(obj.status,obj.User )
+
+            }
 
 
         });
 
-    } );
+
+
+
+
+});
 </script>
 {% endblock %}
