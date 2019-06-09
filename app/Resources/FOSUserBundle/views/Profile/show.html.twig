@@ -1,5 +1,6 @@
-{% extends "adminBundle/baseTemplate/admin_base.html.twig" %}
-{% block body %}
+{% extends is_granted('ROLE_ADMIN') == 'false'
+    ? 'adminBundle/baseTemplate/admin_base.html.twig'
+    : 'CustomerBundle/baseTemplate/customer_base.html.twig' %}{% block body %}
 
 <section class="content-header">
     <h1>
@@ -21,14 +22,15 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="{{ asset('AdminBundle/dist/img/user2-160x160.jpg') }}" alt="User profile picture">
 
-                        <h3 class="profile-username text-center"> {{ user.username }}</h3>
+                        <h3 class="profile-username text-center">
+                            <a href="{{ path('fos_user_profile_show') }}">
+                            {{ user.username }}</a>
+                        </h3>
 
                         <p class="text-muted text-center">{{ user.email }}</p>
 
 
-                        <a href="#" class="btn btn-primary btn-block"><b>update picture</b></a>
 
                     </div>
                     <!-- /.box-body -->

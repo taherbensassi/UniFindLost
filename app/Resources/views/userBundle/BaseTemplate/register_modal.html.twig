@@ -1,0 +1,67 @@
+<form id="formregister" action="{{ path('userRegisteration',{'category':category,'userId':user}) }}"  class="fos_user_registration_register" enctype="multipart/form-data" method="POST" novalidate>
+    <!-- Form Title -->
+    <div class="form-heading text-center">
+        <div class="title">Registration</div>
+        <p class="title-description">Already have an account? <a href="#" data-toggle="modal" data-target="#LogInModal" data-dismiss="modal">Sign in.</a></p>
+        <!-- Social Line -->
+        <div class="text-center social-btn">
+            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}" class="btn btn-primary btn-block" style="    background-color: #3B5998;
+    border-color: #3B5998;"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google'}) }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+        </div>
+    </div>
+
+    <div class="or-seperator" style="margin: 5px 0 10px;"><i>or</i></div>
+
+
+    <div class="alert alert-danger" id="errors" style="color: black;font-size: 13px;    padding: 0.5rem 1.25rem;">
+        <div id="msg_alert"></div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_widget(form.firstname, { 'attr': {'class': 'form-control', 'placeholder': 'First Name'|trans } }) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_widget(form.lastname, { 'attr': {'class': 'form-control', 'placeholder': 'Last Name'|trans } }) }}
+
+        </div>
+    </div>
+    -->
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Username'|trans } }) }}
+            <span class="help-block">{{ form_errors(form.email) }}</span>
+
+        </div>
+        <div class="col-md-6">
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email Address'|trans } }) }}
+            <span class="help-block">{{ form_errors(form.username) }}</span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'form.password'|trans } }) }}
+            <span class="help-block">{{ form_errors(form.plainPassword.first) }}</span>
+
+        </div>
+        <div class="col-md-6">
+            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'form.password_confirmation'|trans } }) }}
+            <span class="help-block">{{ form_errors(form.plainPassword.second) }}</span>
+
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <input type="checkbox" value="agree" id="checkagree"/>
+            <label>Do you agree to the <a href="#">terms and conditions?</a></label>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-block btn-primary login-btn" name="btn_create_and_list" >Sign up</button>
+
+        </div>
+    </div>
+</form>

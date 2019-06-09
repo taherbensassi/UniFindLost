@@ -1,4 +1,7 @@
-{% extends "adminBundle/baseTemplate/admin_base.html.twig" %}
+{% extends is_granted('ROLE_ADMIN') == 'false'
+    ? 'adminBundle/baseTemplate/admin_base.html.twig'
+    : 'CustomerBundle/baseTemplate/customer_base.html.twig' %}
+
 {% block body %}
 
     <section class="content-header">
@@ -21,10 +24,11 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="{{ asset('AdminBundle/dist/img/ff14109b9c.png') }}" alt="User profile picture">
 
-                        <h3 class="profile-username text-center"> {{ app.user.username }}</h3>
-
+                        <h3 class="profile-username text-center">
+                            <a href="{{ path('fos_user_profile_show') }}">
+                                {{ app.user.username }}</a>
+                        </h3>
                         <p class="text-muted text-center">{{ app.user.email }}</p>
 
 

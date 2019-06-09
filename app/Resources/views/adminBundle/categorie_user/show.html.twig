@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categorie_user</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie_user.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ categorie_user.name }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if categorie_user.createdAt %}{{ categorie_user.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorie_user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('categorie_user_edit', { 'id': categorie_user.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

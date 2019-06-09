@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frontend_services list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Headingsection</th>
+                <th>Servicename</th>
+                <th>Serviceicon</th>
+                <th>Servicedescription</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for frontend_service in frontend_services %}
+            <tr>
+                <td><a href="{{ path('frontend_services_show', { 'id': frontend_service.id }) }}">{{ frontend_service.id }}</a></td>
+                <td>{{ frontend_service.headingSection }}</td>
+                <td>{{ frontend_service.serviceName }}</td>
+                <td>{{ frontend_service.serviceIcon }}</td>
+                <td>{{ frontend_service.serviceDescription }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('frontend_services_show', { 'id': frontend_service.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('frontend_services_edit', { 'id': frontend_service.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frontend_services_new') }}">Create a new frontend_service</a>
+        </li>
+    </ul>
+{% endblock %}

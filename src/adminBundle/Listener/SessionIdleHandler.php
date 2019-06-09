@@ -1,6 +1,6 @@
 <?php
 
-namespace adminBundle\Listener;
+/**namespace adminBundle\Listener;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -55,3 +55,4 @@ class SessionIdleHandler
         }
     }
 }
+ * **/

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}FindYourLost!{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Favicons -->
+    {% block stylesheets %}
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/bootstrap/css/bootstrap.min.css') }}">
+
+
+    <!-- Libraries CSS Files -->
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/animate/animate.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('UserBundle/lib/ionicons/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('UserBundle/css/style.css') }}">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('UserBundle/lib/select2-bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('UserBundle/modal-customer.css') }}" rel="stylesheet" />
+
+
+
+    <!-- Main Stylesheet File -->
+
+
+    {% endblock %}
+    {% block stylesheet %} {% endblock %}
+</head>
+
+<body id="body">
+
+<!--==========================
+  Top Bar
+============================-->
+{% include 'userBundle/BaseTemplate/topbar.html.twig' %}
+
+
+<!--==========================
+  Header
+============================-->
+
+{% include 'userBundle/BaseTemplate/header.html.twig' %}
+
+<!-- #header -->
+
+<!--==========================
+  Intro Section
+
+
+============================-->
+
+
+<!-- #intro -->
+{% block body %}
+
+{% endblock %}
+
+<!--==========================
+  Footer
+============================-->
+
+
+<!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% include 'userBundle/BaseTemplate/modale.html.twig' %}
+
+
+
+
+
+{% block javascripts %}
+
+<!-- JavaScript Libraries -->
+<script src="{{ asset('UserBundle/lib/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/jquery/jquery-migrate.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/superfish/hoverIntent.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/superfish/superfish.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/wow/wow.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/magnific-popup/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('UserBundle/lib/sticky/sticky.js') }}"></script>
+<script src="{{ asset('UserBundle/js/main.js') }}"></script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#errors").hide();
+
+            $('.login-btn').click(function(e){
+                e.preventDefault();
+                var firstname = $("#fos_user_registration_form_firstname").val();
+                var lastname = $("#fos_user_registration_form_lastname").val();
+                var username = $("#fos_user_registration_form_username").val();
+                var email = $("#fos_user_registration_form_email").val();
+                var firstpassword = $("#fos_user_registration_form_plainPassword_first").val();
+                var secondpasswrd = $("#fos_user_registration_form_plainPassword_second").val();
+                $.ajax({
+                    url: Routing.generate('validatUser'),
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {'firstname': firstname,'lastname': lastname,'username': username,'email': email, 'firstpassword': firstpassword,'secondpasswrd': secondpasswrd},
+                    success: function(reponse) {
+
+                        $('#formregister').submit();
+                    },
+
+                    error: function(reponse) {
+                        $("#errors").show();
+                        var str = JSON.parse(reponse.responseText);
+                        $("div#msg_alert").text(str);
+
+
+
+
+                    }
+                });
+
+
+            });
+
+
+        });
+    </script>
+
+
+{% endblock %}
+{% block javascript %}
+{% endblock %}
+</body>
+</html>

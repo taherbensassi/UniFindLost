@@ -1,0 +1,71 @@
+{% extends 'userBundle/BaseTemplate/User_base.html.twig' %}
+{% block stylesheet %}
+
+    <style>
+        a {
+            color: #007bff;
+        }
+        body {
+            background: #f8f8f8;
+        }
+
+
+
+
+    </style>
+    <link rel="stylesheet" href="{{ asset('UserBundle/css/information.css') }}">
+
+{% endblock %}
+{% block body %}
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <section class="content-item grey" id="blog-item">
+        <div class="container" style="border: 2px solid #eee;">
+            <div class="row">
+                <!-- BLOG POST - START -->
+                <div class="col-sm-8 blog">
+                    <h2>About {{ user }}</h2>
+                    <ul class="blog-detail list-unstyled list-inline">
+                        <li><i class="fa fa-calendar"></i> 27/02/2014</li>
+                        <li><i class="fa fa-clock-o"></i> 19:41</li>
+                        <li><i class="fa fa-user"></i> John Doe</li>
+                        <li><i class="fa fa-comments"></i> 124 Comments</li>
+                    </ul>
+                    <p><img class="img-responsive pull-left" src="" alt="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis lacus ac semper viverra. Etiam consequat odio sollicitudin metus condimentum, quis hendrerit erat adipiscing. Cras non turpis ut eros varius laoreet a ut felis. Aliquam sodales, purus pulvinar tincidunt congue, elit mauris sodales nisl, consequat iaculis urna enim in lectus. Proin at ornare lacus. Curabitur sodales imperdiet ante, eget fermentum nulla consequat id. Vestibulum quis tellus ac lectus luctus varius nec sit amet nunc. Aliquam elit orci, semper vitae aliquet vel, ultrices nec sem. Morbi lorem ligula, tempus eu ultrices sit amet, varius id quam. Donec vestibulum arcu et augue porta, at mattis neque facilisis. Donec vulputate eu risus ut volutpat. Praesent vel rhoncus velit, quis vestibulum dui. Phasellus sodales sapien ligula, quis consequat diam tristique id. Donec vel rhoncus sem, id elementum quam. Aliquam erat volutpat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis lacus ac semper viverra. Etiam consequat odio sollicitudin metus condimentum, <a href="#">quis hendrerit</a> erat adipiscing. Cras non turpis ut eros varius laoreet a ut felis. Aliquam sodales, purus pulvinar tincidunt congue, elit mauris sodales nisl, consequat iaculis urna enim in lectus. Proin at ornare lacus. Curabitur sodales imperdiet ante, eget fermentum nulla consequat id. Vestibulum quis tellus ac lectus luctus varius nec sit amet nunc. Aliquam elit orci, semper vitae aliquet vel, ultrices nec sem.</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>In venenatis lacus ac semper viverra</li>
+                        <li>Etiam consequat odio sollicitudin metus condimentum</li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, <b>consectetur adipiscing elit. In venenatis lacus ac semper viverra</b>. Etiam consequat odio sollicitudin metus condimentum, <i>quis hendrerit erat adipiscing</i>. Cras non turpis ut eros varius laoreet a ut felis. Aliquam sodales, purus pulvinar tincidunt congue, elit mauris sodales nisl, consequat iaculis urna enim in lectus. Proin at ornare lacus. Curabitur sodales imperdiet ante, eget fermentum nulla consequat id. Vestibulum quis tellus ac lectus luctus varius nec sit amet nunc. Aliquam elit orci, semper vitae aliquet vel, ultrices nec sem.</p>
+                </div>
+                <!-- BLOG POST - END -->
+
+                <!-- SIDEBAR - START -->
+                <div class="col-sm-4">
+                    <div class="sidebar">
+                        <h3>Categories</h3>
+                        <div class="box categories">
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fa fa-female"></i>Fashion</a></li>
+                                <li><a href="#"><i class="fa fa-paint-brush"></i>Design</a></li>
+                                <li><a href="#"><i class="fa fa-music"></i>Music</a></li>
+                                <li><a href="#"><i class="fa fa-plane"></i>Travel</a></li>
+                                <li><a href="#"><i class="fa fa-hashtag"></i>Uncategorized</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- SIDEBAR - END -->
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+
+

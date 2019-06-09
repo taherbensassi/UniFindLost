@@ -1,0 +1,71 @@
+{% extends 'MainFront/BaseTemplate/User_base.html.twig' %}
+
+{% block body %}
+
+    <main id="main">
+
+        <!--==========================
+          About Section
+        ============================-->
+        {% include 'MainFront/index/section/about.html.twig' %}
+
+        <!-- #about -->
+
+        <!--==========================
+          Services Section
+        ============================-->
+        {% include 'MainFront/index/section/services.html.twig' %}
+
+        <!-- #services -->
+
+        <!--==========================
+          Clients Section
+        ============================-->
+        {% include 'MainFront/index/section/clients.html.twig' %}
+
+        <!-- #clients -->
+
+
+
+
+
+
+        <!--==========================
+          Our Team Section
+        ============================-->
+        {% include 'MainFront/index/section/team.html.twig' %}
+
+
+
+
+        <!--==========================
+          Contact Section
+        ============================-->
+        {% include 'MainFront/index/section/contact.html.twig' %}
+
+        <!-- #contact -->
+
+    </main>
+
+{% endblock %}
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+
+
+        $("#users").select2({
+            allowClear: true,
+            width: '100%',
+            theme: "bootstrap"
+
+
+        });
+
+
+
+    });
+
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <!--logo-->
+            <a href="#body">
+                <img src="{{ asset('uploads/logoUser/'~user.picture) }}" alt="{{ user.username }}" title="{{ user.username }}"  style=" width: auto; height: 50px; display: block; text-indent: -9999px;"/>
+            </a>
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li id="home"><a href="{{ path('searchQuery',{'category':category,'user':user}) }}">Home</a></li>
+                <li id="information"><a href="{{ path('information_user',{'category':category,'userId':user}) }}">Information</a></li>
+
+                {% if is_granted('ROLE_USER') %}
+                    <li>
+                        <a href="{{ path('Profile_user_connect',{'category':category,'userId':user}) }}">Profile</a>
+                    </li>
+
+                    <li class="log-out"><a href="{{ path('logoutuser', { 'user': user ,'category': category }) }}"  ><i class="fa fa-sign-out" aria-hidden="true"  style="padding-left: 20px;margin-left: 20px;border-left: 1px solid #e9e9e9;"></i> Logout</a></li>
+
+                {% else %}
+               <li class="login"><a href="#" data-toggle="modal" data-target="#LogInModal" ><i class="fa fa-sign-in" aria-hidden="true"  style="padding-left: 20px;margin-left: 20px;border-left: 1px solid #e9e9e9;"></i> Login</a></li>
+
+                {% endif %}
+
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header>

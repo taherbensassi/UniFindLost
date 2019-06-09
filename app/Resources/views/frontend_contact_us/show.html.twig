@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frontend_contact_us</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ frontend_contact_us.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ frontend_contact_us.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ frontend_contact_us.email }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ frontend_contact_us.subject }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ frontend_contact_us.message }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if frontend_contact_us.createdAt %}{{ frontend_contact_us.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frontend_contact_us_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+
+<section id="intro">
+
+    <div class="intro-content" >
+
+        <h3 style=" text-align: center;">THE LOST & FOUND COMPANY
+            <br>between who's looking for a lost item and who's found it</h3>
+        <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
+            <form method="get" action="{{ path('search') }}">
+                <div class="row align-items-center">
+
+
+                    <div class="col-lg-12 col-xl-10 no-sm-border border-right form-group  " >
+                        <select class="form-control" name="users" id="users" required >
+                            <option selected value="" >Select Places</option>
+                            {% for user in users if user.roles[0] != "ROLE_ADMIN" %}
+                                <option value="{{ user.Id }}">{{ user.username }}</option>
+
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-lg-12 col-xl-2 ml-auto text-right form-group">
+                        <input type="submit" class="btn btn-primary " value="Go">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel" >
+        <div class="item" style="background-image: url('{{ asset('UserBundle/img/intro-carousel/1.jpg') }}');"></div>
+        <div class="item" style="background-image: url('{{ asset('UserBundle/img/intro-carousel/2.jpg') }}');"></div>
+        <div class="item" style="background-image: url('{{ asset('UserBundle/img/intro-carousel/3.jpg') }}');"></div>
+        <div class="item" style="background-image: url('{{ asset('UserBundle/img/intro-carousel/4.jpg') }}');"></div>
+        <div class="item" style="background-image: url('{{ asset('UserBundle/img/intro-carousel/5.jpg') }}');"></div>
+    </div>
+
+</section>
+
+

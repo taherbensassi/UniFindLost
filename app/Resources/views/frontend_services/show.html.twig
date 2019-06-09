@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frontend_service</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ frontend_service.id }}</td>
+            </tr>
+            <tr>
+                <th>Headingsection</th>
+                <td>{{ frontend_service.headingSection }}</td>
+            </tr>
+            <tr>
+                <th>Servicename</th>
+                <td>{{ frontend_service.serviceName }}</td>
+            </tr>
+            <tr>
+                <th>Serviceicon</th>
+                <td>{{ frontend_service.serviceIcon }}</td>
+            </tr>
+            <tr>
+                <th>Servicedescription</th>
+                <td>{{ frontend_service.serviceDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frontend_services_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('frontend_services_edit', { 'id': frontend_service.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

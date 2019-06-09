@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * User controller.
  *
- * @Route("admin/user")
+ * @Route("administration/user")
  */
 class UserController extends Controller
 {
@@ -24,8 +24,6 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-
         $sf_Users = $em->getRepository('adminBundle:User')->findAll();
 
         return $this->render('adminBundle/user/index.html.twig', array(
@@ -35,31 +33,8 @@ class UserController extends Controller
         ));
     }
 
-    /**
-     * Creates a new user entity.
-     *
-     * @Route("/create", name="user_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $user = new User();
-        $form = $this->createForm('adminBundle\Form\UserType', $user);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
 
-            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
-        }
-
-        return $this->render('adminBundle/user/new.html.twig', array(
-            'user' => $user,
-            'form' => $form->createView(),
-        ));
-    }
 
     /**
      * Finds and displays a user entity.
@@ -80,25 +55,80 @@ class UserController extends Controller
     /**
      * Displays a form to edit an existing user entity.
      *
-     * @Route("/{id}/edit", name="user_edit")
+     * @Route("/edit/{id}", name="user_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, User $user)
     {
-        $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('adminBundle\Form\UserType', $user);
+        $logo=$user->getPicture();
+        $editForm = $this->createForm('adminBundle\Form\RegistrationType', $user)
+                         ->remove('plainPassword')
+                         ->remove('firstname')
+                         ->remove('lastname');
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+
+
+
+            //picture edit
+            $file = $user->getPicture();
+            if($file != null)
+            {
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move(
+                    $this->getParameter('logo_directory'),
+                    $fileName
+                );
+                $user->setPicture($fileName);
+            }else{
+                $user->setPicture($logo);
+            }
+
+
+            //enabled
+            $enabled = $request->get('optionsRadios');
+            if($enabled=="Enabled"){
+                $user->setEnabled(1);
+            }else{
+                $user->setEnabled(0);
+            }
+
+
+
+
+
+
+            //location sets
+            $user->setCountry($request->get('country')) ;
+            $user->setZip($request->get('postal_code')) ;
+            $user->setAdresse($request->get('formatted_address')) ;
+            $user->setstate($request->get('administrative_area_level_1')) ;
+
+
+
+
+
+            //role configuration
+            $role = $request->get('role');
+            if($role=="ROLE_ADMIN") {
+                $roles = array('ROLE_ADMIN');
+                $user->setRoles($roles);
+            }elseif($role==="ROLE_CUSTOMER") {
+                $roles = array('ROLE_CUSTOMER');
+                $user->setRoles($roles);
+            }
+
+
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('user_index');
+
         }
 
-        return $this->render('user/edit.html.twig', array(
+        return $this->render('adminBundle/user/edit.html.twig', array(
             'user' => $user,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'form' => $editForm->createView(),
         ));
     }
 
@@ -167,6 +197,50 @@ class UserController extends Controller
         }else{
             $response = json_encode(array('status' => 'error'));
             return new Response($response, 404);
+        }
+    }
+
+
+    //delet user method
+    /**
+     *
+     * @Route("/delete_user_admin/{id}", name="delete_user_admin",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:User')->find($id);
+            $username= $delet->getUsername();
+            $em->remove($delet);
+            $em->flush();
+            $response = json_encode(array('User' => $username,'status'=>'Has been deleted'));
+            return new Response($response, 200);
+        }else{
+            $response = json_encode(array('status' => 'error'));
+            return new Response($response, 404);
+        }
+    }
+
+
+    /**
+     *
+     * @Route("/DeletlogouserbyId/{id}", name="DeletlogouserbyId",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delimageAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:User')->find($id);
+            $path = $this->get('kernel')->getRootDir() . '/../web/uploads/logoUser/';
+            unlink($path."".($delet->getPicture()));
+            $delet->setPicture(null);
+            $em->flush();
+            $response = json_encode(array('msg' => 'succ'));
+            return new Response($response, 200);
         }
     }
 }

@@ -6,6 +6,8 @@ namespace adminBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -20,27 +22,276 @@ class User extends BaseUser
      */
     protected $id;
 
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    protected $url;
+
+
+    /**
+     *
+     * @ORM\Column(type="string",nullable=true)
+     */
+    protected $picture;
+
+    /**
+     *
+     * @ORM\Column(type="string",name="firstname",length=255,nullable=true)
+     */
+    protected $firstname;
+
+    /**
+     *
+     * @ORM\Column(type="string",name="lastname",length=255,nullable=true)
+     */
+    protected $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255,nullable=true)
+     */
+    public $country;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=255,nullable=true)
+     */
+    public $state;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255,nullable=true)
+     */
+    public $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip", type="string", length=255,nullable=true)
+     */
+    public $zip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
+     */
+    protected $facebook_id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
+     */
+    protected $facebook_access_token;
+
+
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=true)
+     */
+    protected $createdAt;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="adminBundle\Entity\categorie_user")
+     * @ORM\JoinColumn(name="category_id",referencedColumnName="id",onDelete="CASCADE")
+     */
+    public $category;
+
+
+
     public function __construct()
     {
         parent::__construct();
 
 
+
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param mixed $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
     }
 
     /**
      * @return string
      */
-    public function getUsername()
+    public function getAdresse()
     {
-        return $this->username;
+        return $this->adresse;
     }
 
     /**
-     * @param string $username
+     * @param string $adresse
      */
-    public function setUsername($username)
+    public function setAdresse($adresse)
     {
-        $this->username = $username;
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    /**
+     * @param string $zip
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+    }
+
+
+
+
+    /**
+     * Set category
+     *
+     * @param \adminBundle\Entity\categorie_user $category
+     *
+     * @return User
+     */
+    public function setCategory(\adminBundle\Entity\categorie_user $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \adminBundle\Entity\categorie_user
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
     }
 
     /**
@@ -60,61 +311,72 @@ class User extends BaseUser
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function isEnabled()
+    public function getFacebookId()
     {
-        return $this->enabled;
+        return $this->facebook_id;
     }
 
     /**
-     * @param bool $enabled
+     * @param string $facebook_id
      */
-    public function setEnabled($enabled)
+    public function setFacebookId($facebook_id)
     {
-        $this->enabled = $enabled;
+        $this->facebook_id = $facebook_id;
     }
 
     /**
      * @return string
      */
-    public function getPassword()
+    public function getFacebookAccessToken()
     {
-        return $this->password;
+        return $this->facebook_access_token;
     }
 
     /**
-     * @param string $password
+     * @param string $facebook_access_token
      */
-    public function setPassword($password)
+    public function setFacebookAccessToken($facebook_access_token)
     {
-        $this->password = $password;
+        $this->facebook_access_token = $facebook_access_token;
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function getRoles()
+    public function getGoogleId()
     {
-        return $this->roles;
+        return $this->google_id;
     }
 
     /**
-     * @param array $roles
+     * @param mixed $google_id
      */
-    public function setRoles($roles)
+    public function setGoogleId($google_id)
     {
-        $this->roles = $roles;
+        $this->google_id = $google_id;
     }
-
 
     /**
-     * @return \DateTime|null
+     * @return mixed
      */
-    public function getLastLogin()
+    public function getGoogleAccessToken()
     {
-        return $this->lastLogin;
+        return $this->google_access_token;
     }
+
+    /**
+     * @param mixed $google_access_token
+     */
+    public function setGoogleAccessToken($google_access_token)
+    {
+        $this->google_access_token = $google_access_token;
+    }
+
+
+
+
 
 
 }

@@ -3,10 +3,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
 
     <style>
+
         #users_filter{
             float: right;
         }
         div.dataTables_paginate {float: right}
+        table{
+            table-layout: fixed;
+        }
+        td{
+            word-wrap:break-word
+        }
+
     </style>
 {% endblock %}
 {% block body %}
@@ -29,7 +37,7 @@
 
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="sonata-action-element" href="{{ path('user_new') }}"><i class="fa fa-plus-circle"></i>
+                            <li><a class="sonata-action-element" href="{{ path('fos_user_registration_register') }}"><i class="fa fa-plus-circle"></i>
                                     Add new</a></li>
                         </ul>
 
@@ -54,35 +62,39 @@
 
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="users" class="table table-bordered table-striped table-responsive" style="table-layout: fixed;
+                    <table id="users" class="table table-bordered table-striped table-responsive " style="table-layout: fixed;
 width: 100%;">
                         <thead>
                         <tr>
                             <th>{{ 'Username'|trans }}</th>
-                            <th>{{ 'Enabled'|trans }}</th>
+                            <th >{{ 'Enabled'|trans }}</th>
                             <th>E-Mail-Address</th>
                             <th>Role</th>
-                            <th>Delete User</th>
+                            <th>Created at</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for user in users if user!=app.user %}
                             <tr>
-                                <td>{{ user.username }}</td>
-                                <td>
+
+                                <td><a class="btn btn-link" href="{{ path('user_edit', { 'id': user.id }) }}" style="font-weight: bold;">{{ user.username }}</a>
+                                    </td>
+                                <td >
                                     <!--editable-->
                                     <a href="#"  data-value="{{ user.enabled }}" class="status " data-pk="{{ user.id }}"></a>
 
-                                <td>{{ user.email }}</td>
+                                <td >{{ user.email }}</td>
                                 <td>
                                     {% if user.roles[0]=="ROLE_ADMIN" %}
                                         <span class="label label-info" >Admin</span>
-                                    {% elseif user.roles[0]=="ROLE_CUSTOMER" %}
-                                        <span class="label label-info" >Customer</span>
-                                    {% else %}
+                                    {% elseif user.roles[0]=="ROLE_USER" %}
                                         <span class="label label-info" >User</span>
+                                    {% else %}
+                                        <span class="label label-info" >Customer</span>
                                     {% endif %}
                                 </td>
+                                <td><strong>{{ user.createdAt|date('d-m-Y H:i:s') }}</strong></td>
                                 <td>
                                     <a  id="btnDelete"  class="btn btn-danger"  data-id="{{ user.id  }}" data-toggle="modal" data-target="#myModalDelete">  <i class="fa fa-trash"></i></a>
                                 </td>
@@ -106,6 +118,46 @@ width: 100%;">
         <!-- /.box -->
 
     </section>
+
+
+
+
+    <!-- /.modal delet -->
+    <div id="myModalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{'Delete'|trans}} {{'User'|trans}}</h4>
+                </div>
+                <div class="modal-body">
+
+                        <div class="alert alert-default">
+
+                            <p style="align-items: center">
+                            {{'Confirm batch action Delete Are you sure you want to confirm this action and execute it for the selected element?'|trans}}
+                            </p>
+                            <div>
+                                <strong>Id User :</strong>
+                                <span id="id_user_delete"></span>
+                            </div>
+
+
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger"  id="delete_user_ok">Yes, execute</button>
+                    Or
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{'Cancel'|trans}}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 {% endblock %}
 
 
@@ -118,6 +170,10 @@ width: 100%;">
 
 
 $(document).ready(function() {
+
+
+
+
         //table users
         var table = $('#users').DataTable( {
             'paging'      : true,
@@ -146,9 +202,37 @@ $(document).ready(function() {
                 toastr.success(obj.status,obj.User )
 
             }
-
-
         });
+
+    //get id
+    table.on('click','a#btnDelete',function () {
+        var id= $(this).data("id");
+        $("span#id_user_delete").text(id);
+        Window.tr=$(this).closest('tr');
+
+
+    });
+
+    $('button#delete_user_ok').on('click',function () {
+        var id = $("span#id_user_delete").text();
+        $.ajax({
+            url: Routing.generate('delete_user_admin', {id: id}),
+            type: 'post',
+            success: function(response) {
+                $('#myModalDelete').modal('hide');
+                var json = $.parseJSON(response);
+                //object javascrit
+                toastr.success(json.status,json.Category);
+                Window.tr.fadeOut();
+
+            },
+            error: function(reponse) {
+                toastr.danger('Ops','somthing wrong');
+
+
+            }
+        });
+    })
 
 
 

@@ -21,7 +21,10 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-
+            new CustomerBundle\CustomerBundle(),
+            new UserBundle\UserBundle(),
+            new Http\HttplugBundle\HttplugBundle(), // If you require the php-http/httplug-bundle package.
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
 
         ];
 

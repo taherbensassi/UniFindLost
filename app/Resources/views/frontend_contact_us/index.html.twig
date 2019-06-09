@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frontend_contact_uses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for frontend_contact_us in frontend_contact_uses %}
+            <tr>
+                <td><a href="{{ path('frontend_contact_us_show', { 'id': frontend_contact_us.id }) }}">{{ frontend_contact_us.id }}</a></td>
+                <td>{{ frontend_contact_us.name }}</td>
+                <td>{{ frontend_contact_us.email }}</td>
+                <td>{{ frontend_contact_us.subject }}</td>
+                <td>{{ frontend_contact_us.message }}</td>
+                <td>{% if frontend_contact_us.createdAt %}{{ frontend_contact_us.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('frontend_contact_us_show', { 'id': frontend_contact_us.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

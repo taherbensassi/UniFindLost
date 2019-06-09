@@ -1,0 +1,40 @@
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+
+        <div class="contact-info float-left">
+            <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">{{ user.email }}</a>
+            <i class="fa fa-phone"></i> +49 152 37183033
+            <i class="fa fa-language" style="padding-left: 20px;margin-left: 20px;border-left: 1px solid #e9e9e9;"></i>
+            <div class="btn-group">
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <!--lang-->
+                    {% if   app.request.getLocale()=="en"  %}
+                        English(en)
+                    {% elseif  app.request.getLocale()=="de"  %}
+                        Deutsch(de)
+                    {%  elseif  app.request.getLocale()=="fr" %}
+                        Français(fr)
+                    {% endif %}
+                    <span class="caret"></span></a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">Englisch(en)</a></li>
+                    <li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'de'}))}}">Deutsch(de)</a></li>
+                    <li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'}))}}">Français(fr)</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="social-links float-right">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
+</section>

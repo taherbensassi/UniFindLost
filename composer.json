@@ -6,7 +6,9 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "adminBundle\\": "src/adminBundle"
+            "adminBundle\\": "src/adminBundle",
+            "CustomerBundle\\": "src/CustomerBundle",
+            "UserBundle\\": "src/UserBundle"
 
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -21,8 +23,13 @@
         "doctrine/orm": "^2.5",
         "friendsofsymfony/jsrouting-bundle": "^2.3",
         "friendsofsymfony/user-bundle": "~2.0",
+        "hwi/oauth-bundle": "^0.6.3",
         "incenteev/composer-parameter-handler": "^2.0",
         "jms/i18n-routing-bundle": "^2.0",
+        "knpuniversity/oauth2-client-bundle": "^1.28",
+        "league/oauth2-facebook": "^2.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/httplug-bundle": "^1.15",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
         "symfony/monolog-bundle": "^3.1.0",

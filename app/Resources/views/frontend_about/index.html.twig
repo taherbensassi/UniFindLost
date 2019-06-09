@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frontend_abouts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Headingsection</th>
+                <th>Descriptionsection</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for frontend_about in frontend_abouts %}
+            <tr>
+                <td><a href="{{ path('frontend_about_show', { 'id': frontend_about.id }) }}">{{ frontend_about.id }}</a></td>
+                <td>{{ frontend_about.headingSection }}</td>
+                <td>{{ frontend_about.descriptionSection }}</td>
+                <td>{% if frontend_about.createdAt %}{{ frontend_about.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('frontend_about_show', { 'id': frontend_about.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('frontend_about_edit', { 'id': frontend_about.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frontend_about_new') }}">Create a new frontend_about</a>
+        </li>
+    </ul>
+{% endblock %}

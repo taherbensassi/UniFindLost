@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/dashboard/",name="dashboard")
+     * @Route("/administration/dashboard/",name="dashboard",options={"expose"=true})
      */
     public function indexAction()
     {
