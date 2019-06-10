@@ -1,0 +1,146 @@
+{% extends 'CustomerBundle/baseTemplate/customer_base.html.twig' %}
+{% block stylesheet%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+{% endblock %}
+{% block body %}
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+
+        <div class="sticky-wrapper">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+
+                    <div class="navbar-collapse">
+                        <div class="navbar-left">
+                            <ol class="breadcrumb" style="    padding: 4px 15px;padding-top: 16px;margin-bottom: -2px;list-style: none;background-color: #f8f8f8;border-radius: 4px;">
+                                <li><a href="{{ path('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                                <li ><a href="{{ path('search_area_index') }}">search area</a></li>
+                                <li class="active">New</li>
+
+                            </ol>
+                        </div>
+
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="sonata-action-element" href="{{ path('categorie_user_new') }}"><i class="fa fa-plus-circle"></i>
+                                    Add new</a></li>
+                        </ul>
+
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+
+
+            <div class="box-header with-border">
+                <h3 class="box-title">Create Search area</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i></button>
+                </div>
+            </div>
+
+            <div class="box-body">
+
+
+
+
+                <div class="col-xs-12">
+                    <div class="imagemaps-wrapper">
+                        <img src="{{ asset('UserBundle/csm_Lageplan_Campus_31ff566af5.png') }}" draggable="false">
+                    </div>
+                    <div class="imagemaps-control">
+                        <fieldset>
+                            <legend>Settings</legend>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Links</th>
+                                    <th scope="col">Target</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody class="imagemaps-output">
+                                <tr class="item-###">
+                                    <th scope="row">###</th>
+                                    <td><input type="text" class="form-control area-href"></td>
+                                    <td>
+                                        <select class="form-control area-target">
+                                            <option value="_self">_self</option>
+                                            <option value="_blank">_blank</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <div>
+                            <button type="button" class="btn btn-info btn-add-map">Add New</button>
+                            <button type="button" class="btn btn-success btn-get-map">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <!-- /.box-body -->
+            <!-- /.box-footer-->
+
+        </div>
+        <!-- /.box -->
+
+    </section>
+{% endblock %}
+{% block javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ asset('AdminBundle/search_area/imagemaps.js') }}"></script>
+    <script type="text/javascript">
+        $('.imagemaps-wrapper').imageMaps({
+            addBtn: '.btn-add-map',
+            // rectWidth: 100,
+            // rectHeight: 60,
+            // areaHref: '.area-href',
+            // areaTarget: '.area-target',
+            // btnDelete: '.btn-delete',
+            output: '.imagemaps-output',
+            stopCallBack: function(active, coords){
+                // console.log(active);
+                // console.log(coords);
+            }
+        });
+
+        $('.btn-get-map').on('click', function(){
+            let oParent = $(this).parent().parent().parent();
+            let result  = oParent.find('.imagemaps-wrapper').clone();
+            result.children('div').remove();
+            // console.log(result.html());
+            console.log(result.html());
+        });
+    </script>
+{% endblock %}
+
+

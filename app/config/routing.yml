@@ -1,3 +1,7 @@
+admin_search.area:
+    resource: "@adminBundle/Controller/search_areaController.php"
+    type:     annotation
+
 admin_frontend.contact.us:
     resource: "@adminBundle/Controller/frontend_contact_usController.php"
     type:     annotation

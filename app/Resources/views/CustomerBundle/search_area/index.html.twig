@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Search_areas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Desciption</th>
+                <th>Html</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for search_area in search_areas %}
+            <tr>
+                <td><a href="{{ path('search_area_show', { 'id': search_area.id }) }}">{{ search_area.id }}</a></td>
+                <td>{{ search_area.url }}</td>
+                <td>{{ search_area.desciption }}</td>
+                <td>{{ search_area.html }}</td>
+                <td>{% if search_area.createdAt %}{{ search_area.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('search_area_show', { 'id': search_area.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('search_area_edit', { 'id': search_area.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('search_area_new') }}">Create a new search_area</a>
+        </li>
+    </ul>
+{% endblock %}

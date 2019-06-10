@@ -1,8 +1,11 @@
 <form id="formregister" action="{{ path('userRegisteration',{'category':category,'userId':user}) }}"  class="fos_user_registration_register" enctype="multipart/form-data" method="POST" novalidate>
     <!-- Form Title -->
     <div class="form-heading text-center">
-        <div class="title">Registration</div>
-        <p class="title-description">Already have an account? <a href="#" data-toggle="modal" data-target="#LogInModal" data-dismiss="modal">Sign in.</a></p>
+        <div class="title" style="font-size: 16px"><strong>Sign up</strong></div>
+        <div class="description-block" style="font-size: small">
+            Already have an account? <a href="#" data-toggle="modal" data-target="#LogInModal" data-dismiss="modal">Log in.
+            </a>
+        </div>
         <!-- Social Line -->
         <div class="text-center social-btn">
             <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}" class="btn btn-primary btn-block" style="    background-color: #3B5998;

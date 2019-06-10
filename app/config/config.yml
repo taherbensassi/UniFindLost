@@ -35,6 +35,9 @@ framework:
     assets: ~
     php_errors:
         log: true
+    profiler:
+        only_exceptions:      false
+        only_master_requests: false
 
 # Twig Configuration
 twig:

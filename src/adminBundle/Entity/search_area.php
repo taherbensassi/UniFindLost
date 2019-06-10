@@ -1,0 +1,159 @@
+<?php
+
+namespace adminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * search_area
+ *
+ * @ORM\Table(name="search_area")
+ * @ORM\Entity(repositoryClass="adminBundle\Repository\search_areaRepository")
+ */
+class search_area
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="desciption", type="string", length=255)
+     */
+    private $desciption;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="html", type="string", length=255)
+     */
+    private $html;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return search_area
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set desciption
+     *
+     * @param string $desciption
+     *
+     * @return search_area
+     */
+    public function setDesciption($desciption)
+    {
+        $this->desciption = $desciption;
+
+        return $this;
+    }
+
+    /**
+     * Get desciption
+     *
+     * @return string
+     */
+    public function getDesciption()
+    {
+        return $this->desciption;
+    }
+
+    /**
+     * Set html
+     *
+     * @param string $html
+     *
+     * @return search_area
+     */
+    public function setHtml($html)
+    {
+        $this->html = $html;
+
+        return $this;
+    }
+
+    /**
+     * Get html
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return $this->html;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return search_area
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+}
+

@@ -2,13 +2,11 @@
 
 namespace UserBundle\Controller;
 
-use adminBundle\Entity\categorie_user;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class indexController extends Controller
@@ -37,8 +35,7 @@ class indexController extends Controller
 
 
     /**
-     * @Route("/search/",name="search")
-     * @Method("GET")
+     * @Route("/search/",name="search",methods={"GET"})
      */
     public function searchAction(Request $request)
     {
@@ -57,8 +54,7 @@ class indexController extends Controller
 
 
     /**
-     * @Route("/{category}/{user}/index",name="searchQuery")
-     * @Method("GET")
+     * @Route("/{category}/{user}/index",name="searchQuery",methods={"GET"})
      */
     public function searchQueryAction(Request $request,$user,$category)
     {
@@ -81,8 +77,7 @@ class indexController extends Controller
     /**
      * get user name
      *
-     * @Route("/getlistcustomer/", name="getlistcustomer",options={"expose"=true})
-     * @Method({"GET"})
+     * @Route("/getlistcustomer/", name="getlistcustomer",options={"expose"=true},methods={"GET"})
      */
     public function getlistcustomerAction(Request $request)
     {
@@ -119,8 +114,7 @@ class indexController extends Controller
     /**
      * get user name
      *
-     * @Route("/logoutuser/{user}/{category}", name="logoutuser",options={"expose"=true})
-     * @Method({"GET"})
+     * @Route("/logoutuser/{user}/{category}", name="logoutuser",options={"expose"=true},methods={"GET"})
      */
     public function logoutAction(Request $request,$user,$category) {
         //do whatever you want here

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Search_area</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ search_area.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ search_area.url }}</td>
+            </tr>
+            <tr>
+                <th>Desciption</th>
+                <td>{{ search_area.desciption }}</td>
+            </tr>
+            <tr>
+                <th>Html</th>
+                <td>{{ search_area.html }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if search_area.createdAt %}{{ search_area.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('search_area_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('search_area_edit', { 'id': search_area.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -97,46 +97,57 @@
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
+<script src="{{ asset('UserBundle/js/notify.js') }}"></script>
+<script>
+$(document).ready(function() {
+        //hide errors
+        $("#errors").hide();
 
-            $("#errors").hide();
+        //register action
+        $('.login-btn').click(function(e){
+            e.preventDefault();
+            var firstname = $("#fos_user_registration_form_firstname").val();
+            var lastname = $("#fos_user_registration_form_lastname").val();
+            var username = $("#fos_user_registration_form_username").val();
+            var email = $("#fos_user_registration_form_email").val();
+            var firstpassword = $("#fos_user_registration_form_plainPassword_first").val();
+            var secondpasswrd = $("#fos_user_registration_form_plainPassword_second").val();
+            $.ajax({
+                url: Routing.generate('validatUser'),
+                type: 'POST',
+                dataType: 'json',
+                data: {'firstname': firstname,'lastname': lastname,'username': username,'email': email, 'firstpassword': firstpassword,'secondpasswrd': secondpasswrd},
+                success: function(reponse) {
+                    $('#formregister').submit();
+                },
+                error: function(reponse) {
+                    $("#errors").show();
+                    var str = JSON.parse(reponse.responseText);
+                    $("div#msg_alert").text(str);
 
-            $('.login-btn').click(function(e){
-                e.preventDefault();
-                var firstname = $("#fos_user_registration_form_firstname").val();
-                var lastname = $("#fos_user_registration_form_lastname").val();
-                var username = $("#fos_user_registration_form_username").val();
-                var email = $("#fos_user_registration_form_email").val();
-                var firstpassword = $("#fos_user_registration_form_plainPassword_first").val();
-                var secondpasswrd = $("#fos_user_registration_form_plainPassword_second").val();
-                $.ajax({
-                    url: Routing.generate('validatUser'),
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {'firstname': firstname,'lastname': lastname,'username': username,'email': email, 'firstpassword': firstpassword,'secondpasswrd': secondpasswrd},
-                    success: function(reponse) {
-
-                        $('#formregister').submit();
-                    },
-
-                    error: function(reponse) {
-                        $("#errors").show();
-                        var str = JSON.parse(reponse.responseText);
-                        $("div#msg_alert").text(str);
-
-
-
-
-                    }
+                }
                 });
-
-
-            });
-
-
         });
-    </script>
+
+         $('#tooltipAddNew').click(function(e) {
+
+             $("#elementLogin").notify("You need to login",{ position:"top left" }, "error"
+
+             );
+
+         });
+
+
+
+
+
+
+
+
+
+
+    });
+</script>
 
 
 {% endblock %}

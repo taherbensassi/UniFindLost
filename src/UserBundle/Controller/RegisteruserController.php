@@ -2,21 +2,18 @@
 
 namespace UserBundle\Controller;
 
-use adminBundle\Entity\categorie_user;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class RegisteruserController extends Controller
@@ -28,7 +25,6 @@ class RegisteruserController extends Controller
      */
     public function userRegisterationAction(Request $request,$category,$userId)
     {
-        $em = $this->getDoctrine()->getManager();
 
 
 
@@ -108,8 +104,7 @@ class RegisteruserController extends Controller
     /**
      * Add User entity.
      *
-     * @Route("/validatUser", name="validatUser",options={"expose"=true})
-     * @Method({"GET", "POST"})
+     * @Route("/validatUser", name="validatUser",options={"expose"=true},methods={"GET", "POST"})
      */
     public function ValidateUserAction(Request $request)
     {
@@ -129,22 +124,22 @@ class RegisteruserController extends Controller
 
             if($username == "")
             {
-                $response = json_encode("Username* Required");
+                $response = json_encode("Username Required");
                 return new Response($response, 400);
             }
             elseif($email == "")
             {
-                $response = json_encode("email* Required");
+                $response = json_encode("E-mail Required");
                 return new Response($response, 400);
             }
             elseif($firstpassword == "")
             {
-                $response = json_encode("password* Required");
+                $response = json_encode("Password Required");
                 return new Response($response, 400);
             }
             elseif($secondpasswrd == "")
             {
-                $response = json_encode("Re-password* Required");
+                $response = json_encode("Re-password Required");
                 return new Response($response, 400);
             }
             elseif($user_email)

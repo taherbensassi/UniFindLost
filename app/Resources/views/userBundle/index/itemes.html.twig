@@ -1,0 +1,89 @@
+<div class="col-lg-9">
+    <div class="d-flex flex-column flex-md-row mb-3 mb-md-0">
+        <nav class="mr-auto d-flex align-items-center" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="active breadcrumb-item" aria-current="page"><a href="/"><i class="fa fa-home"></i></a></li>
+                <li class="active breadcrumb-item" aria-current="page">Lost Items</li>
+            </ol>
+        </nav>
+        <div role="toolbar" class="btn-toolbar">
+            <div role="group" class="btn-group">
+
+                <!--show button if connected -->
+                {% if is_granted('ROLE_USER_CONNECT') %}
+                <button  class="align-self-center btn btn-primary"><i class="fa-fw fa fa-plus"></i>I've found item</button>
+                {% else %}
+                <button id="tooltipAddNew" class="align-self-center btn btn-primary" ><i class="fa-fw fa fa-plus"></i>I've found item</button>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 Card_custom-card--border_5wJKy card">
+        <div class="table-responsive-xl">
+            <table class="mb-0 table table-hover">
+                <thead>
+                <tr>
+                    <th class="align-middle bt-0">Picture</th>
+                    <th class="align-middle bt-0">Item</th>
+                    <th class="align-middle bt-0">Status</th>
+                    <th class="align-middle bt-0">People</th>
+                    <th class="align-middle bt-0 text-right">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="align-middle">
+                        <div class="text-inverse"><a href="#"><i class="fa fa-fw fa-lg fa-star-o"></i></a></div>
+                    </td>
+                    <td class="align-middle">
+                        <div><a href="/apps/tasks/list">Ergonomic real-time adapter</a></div><span>Last Edited by: Savanah Durgan <br>Sunday, 12 June, 2018</span></td>
+                    <td class="align-middle"><span class="badge badge-success badge-pill">Active</span></td>
+
+                    <td class="align-middle">
+                        <div class="avatar-image avatar-image--loaded">
+                            <div class="avatar avatar--md avatar-image__image">
+                                <div class="avatar__content"><img src="http://bootdey.com/img/Content/avatar/avatar1.png"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle text-right">
+
+
+
+                        <div class="dropdown">
+                            <button class="dropdown-toggle btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none">
+                                <i class="fa fa-gear"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button type="button" tabindex="0" class="dropdown-item"><i class="fa fa-fw fa-folder-open mr-2"></i>View</button>
+                                <button type="button" tabindex="0" class="dropdown-item"><i class="fa fa-fw fa-ticket mr-2"></i>Add Task</button>
+                                <button type="button" tabindex="0" class="dropdown-item"><i class="fa fa-fw fa-paperclip mr-2"></i>Add Files</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center pb-0 card-footer">
+            <nav class="" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a href="#" class="page-link" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-fw fa-angle-left"></i></span><span class="sr-only">Previous</span></a></li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link" aria-label="Next"><span aria-hidden="true"><i class="fa fa-fw fa-angle-right"></i></span><span class="sr-only">Next</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
