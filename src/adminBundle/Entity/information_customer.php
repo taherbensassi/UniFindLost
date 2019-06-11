@@ -44,6 +44,12 @@ class information_customer
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="adminBundle\Entity\User")
+     * @ORM\JoinColumn(name="customer_id",referencedColumnName="id",onDelete="CASCADE")
+     */
+    public $user;
+
+    /**
      * Get id
      *
      * @return int
@@ -124,5 +130,22 @@ class information_customer
     {
         return $this->createdAt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
 }
 

@@ -65,6 +65,18 @@ class found_itemes
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="adminBundle\Entity\category_itemes")
+     * @ORM\JoinColumn(name="categoy_id",referencedColumnName="id",onDelete="CASCADE")
+     */
+    public $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="adminBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id",onDelete="CASCADE")
+     */
+    public $user;
+
+    /**
      * Get id
      *
      * @return int
@@ -217,5 +229,39 @@ class found_itemes
     {
         return $this->contactInfo;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
 }
 
