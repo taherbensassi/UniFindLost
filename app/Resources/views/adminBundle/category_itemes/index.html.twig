@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Category_itemes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Heading</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category_iteme in category_itemes %}
+            <tr>
+                <td><a href="{{ path('category_itemes_show', { 'id': category_iteme.id }) }}">{{ category_iteme.id }}</a></td>
+                <td>{{ category_iteme.heading }}</td>
+                <td>{% if category_iteme.createdAt %}{{ category_iteme.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('category_itemes_show', { 'id': category_iteme.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('category_itemes_edit', { 'id': category_iteme.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('category_itemes_new') }}">Create a new category_iteme</a>
+        </li>
+    </ul>
+{% endblock %}

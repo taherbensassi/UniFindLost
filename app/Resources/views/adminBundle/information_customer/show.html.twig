@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Information_customer</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ information_customer.id }}</td>
+            </tr>
+            <tr>
+                <th>Heading</th>
+                <td>{{ information_customer.heading }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ information_customer.text }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if information_customer.createdAt %}{{ information_customer.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('information_customer_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('information_customer_edit', { 'id': information_customer.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

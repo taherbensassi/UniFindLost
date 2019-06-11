@@ -3,27 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="742590dd-b5ab-4841-8ec1-589104ba9402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate/sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_about/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_about/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_about/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_about/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_contact_us/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_contact_us/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_contact_us/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_contact_us/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_services/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_services/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontend_services/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/User_base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/User_base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/modale.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/modale.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/register_modal.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/register_modal.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/index/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/RegisteruserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/RegisteruserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/userController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,32 +16,7 @@
     <executablePath>composer</executablePath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="140" column="23" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
-              <folding>
-                <element signature="e#12#63#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -244,7 +199,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,40 +233,6 @@
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
               <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomerBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomerBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="baseTemplate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomerBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="search_area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,13 +240,6 @@
               <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
@@ -337,31 +250,32 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/UserBundle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Resources/views/CustomerBundle" />
-      <recent name="$PROJECT_DIR$/app/Resources/views/adminBundle" />
-      <recent name="$PROJECT_DIR$/src/CustomerBundle/Controller" />
-      <recent name="$PROJECT_DIR$/app/Resources/views/adminBundle/baseTemplate" />
-      <recent name="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/UserBundle" />
       <recent name="$PROJECT_DIR$/web/UserBundle/js" />
       <recent name="$PROJECT_DIR$/src/UserBundle/Controller" />
       <recent name="$PROJECT_DIR$/app/Resources/views/userBundle" />
       <recent name="$PROJECT_DIR$/web/UserBundle/search" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Resources/views/adminBundle" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/CustomerBundle" />
+      <recent name="$PROJECT_DIR$/src/CustomerBundle/Controller" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/adminBundle/baseTemplate" />
+      <recent name="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -402,18 +316,19 @@
       <workItem from="1558905218996" duration="701000" />
       <workItem from="1559667581907" duration="81530000" />
       <workItem from="1560014033591" duration="20804000" />
-      <workItem from="1560094468643" duration="26058000" />
+      <workItem from="1560094468643" duration="26327000" />
+      <workItem from="1560182505861" duration="1039000" />
+      <workItem from="1560235794789" duration="1784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231564000" />
+    <option name="totallyTimeSpent" value="234656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="-4" width="1321" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925262" visible="true" weight="0.22980392" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925262" visible="true" weight="0.23764706" />
       <window_info id="Structure" order="1" sideWeight="0.5007474" side_tool="true" weight="0.22980392" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -426,7 +341,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32884902" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960783" weight="0.34678626" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49960783" visible="true" weight="0.3348281" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50039214" side_tool="true" weight="0.32884902" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -848,19 +763,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="140" column="23" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
-          <folding>
-            <element signature="e#12#63#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="-521">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
         </state>
       </provider>
     </entry>

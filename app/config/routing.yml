@@ -1,3 +1,15 @@
+admin_found.itemes:
+    resource: "@adminBundle/Controller/found_itemesController.php"
+    type:     annotation
+
+admin_category.itemes:
+    resource: "@adminBundle/Controller/category_itemesController.php"
+    type:     annotation
+
+admin_information.customer:
+    resource: "@adminBundle/Controller/information_customerController.php"
+    type:     annotation
+
 admin_search.area:
     resource: "@adminBundle/Controller/search_areaController.php"
     type:     annotation

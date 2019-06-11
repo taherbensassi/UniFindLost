@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Found_itemes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Foundon</th>
+                <th>Foundarea</th>
+                <th>Otherinfo</th>
+                <th>Contactinfo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for found_iteme in found_itemes %}
+            <tr>
+                <td><a href="{{ path('found_itemes_show', { 'id': found_iteme.id }) }}">{{ found_iteme.id }}</a></td>
+                <td>{{ found_iteme.name }}</td>
+                <td>{{ found_iteme.photo }}</td>
+                <td>{% if found_iteme.foundOn %}{{ found_iteme.foundOn|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ found_iteme.foundArea }}</td>
+                <td>{{ found_iteme.otherInfo }}</td>
+                <td>{{ found_iteme.contactInfo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('found_itemes_show', { 'id': found_iteme.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('found_itemes_edit', { 'id': found_iteme.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('found_itemes_new') }}">Create a new found_iteme</a>
+        </li>
+    </ul>
+{% endblock %}
