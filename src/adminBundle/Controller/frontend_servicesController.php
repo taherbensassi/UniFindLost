@@ -26,7 +26,7 @@ class frontend_servicesController extends Controller
 
         $frontend_services = $em->getRepository('adminBundle:frontend_services')->findAll();
 
-        return $this->render('frontend_services/index.html.twig', array(
+        return $this->render('adminBundle/frontend_services/index.html.twig', array(
             'frontend_services' => $frontend_services,
         ));
     }
@@ -39,7 +39,7 @@ class frontend_servicesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $frontend_service = new Frontend_service();
+        $frontend_service = new frontend_services();
         $form = $this->createForm('adminBundle\Form\frontend_servicesType', $frontend_service);
         $form->handleRequest($request);
 
@@ -51,7 +51,7 @@ class frontend_servicesController extends Controller
             return $this->redirectToRoute('frontend_services_show', array('id' => $frontend_service->getId()));
         }
 
-        return $this->render('frontend_services/new.html.twig', array(
+        return $this->render('adminBundle/frontend_services/new.html.twig', array(
             'frontend_service' => $frontend_service,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class frontend_servicesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($frontend_service);
 
-        return $this->render('frontend_services/show.html.twig', array(
+        return $this->render('adminBundle/frontend_services/show.html.twig', array(
             'frontend_service' => $frontend_service,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class frontend_servicesController extends Controller
             return $this->redirectToRoute('frontend_services_edit', array('id' => $frontend_service->getId()));
         }
 
-        return $this->render('frontend_services/edit.html.twig', array(
+        return $this->render('adminBundle/frontend_services/edit.html.twig', array(
             'frontend_service' => $frontend_service,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -24,7 +24,7 @@ class frontend_services
     /**
      * @var string
      *
-     * @ORM\Column(name="heading_section", type="string", length=255)
+     * @ORM\Column(name="heading_section", type="string", length=255,nullable=true)
      */
     private $headingSection;
 

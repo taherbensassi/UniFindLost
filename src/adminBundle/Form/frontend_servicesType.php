@@ -13,7 +13,9 @@ class frontend_servicesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('headingSection')->add('serviceName')->add('serviceIcon')->add('serviceDescription');
+        $builder->add('serviceName')
+                ->add('serviceIcon')
+                ->add('serviceDescription');
     }/**
      * {@inheritdoc}
      */

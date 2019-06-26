@@ -14,16 +14,26 @@ class indexController extends Controller
 
 
     /**
+     *  the index page the Root page sending ategory , users ,
      * @Route("/index",name="homepage")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+
+        /******* Category*****/
         $categorys = $em->getRepository('adminBundle:categorie_user')->findAll();
+
+        /******* abouts front-end*****/
+        $abouts = $em->getRepository('adminBundle:frontend_about')->findAll();
+
+
+        /******* users*****/
         $users = $em->getRepository('adminBundle:User')->findAll();
-                //get data
+
+        //data for the google map
                 $array=array();
-                $all=array();
+                $maps=array();
                 foreach($users as $k => $h) {
                     $array[]= $h->getUsername();
                     $array[]= (float)$h->getLatitude();
@@ -32,14 +42,17 @@ class indexController extends Controller
                     $array[]=$h->getCountry();
                     $array[]=$h->getState();
                     $array[]= $k ;
-                    array_push($all,$array);
+                    array_push($maps,$array);
                     unset($array);
                 }
+
+
 
         return $this->render('MainFront/index/index.html.twig',array(
             'categorys'=>$categorys,
             'users'=>$users,
-            'resultat'=>$all,
+            'resultat'=>$maps,
+            'abouts'=>$abouts,
         ));
     }
 
@@ -64,6 +77,29 @@ class indexController extends Controller
         return $this->redirectToRoute('searchQuery', array(
             'category' => $categorie_user->getName(),
             'user' => $username
+        ));
+
+    }
+
+
+
+    /**
+     * @Route("/searchForm/",name="searchForm",options={"expose"=true},methods={"GET"})
+     */
+    public function searchFormAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user_username=$request->get('usersselect');
+        $user = $em->getRepository('adminBundle:User')->findOneBy(array(
+            'id'=>$user_username
+        ));
+
+        $categorie_user = $em->getRepository('adminBundle:categorie_user')->findOneBy(array(
+            'id'=>$user->getCategory()
+        ));
+        return $this->redirectToRoute('searchQuery', array(
+            'category' => $categorie_user->getName(),
+            'user' => $user->getUsername()
         ));
 
     }
@@ -136,6 +172,31 @@ class indexController extends Controller
             'category' => $category,
             'user' => $user
         ));
+    }
+
+
+    /**
+     * get user by category
+     *
+     * @Route("/get_listcustomer_by_category/", name="get_listcustomer_by_category",options={"expose"=true},methods={"GET"})
+     */
+    public function get_listcustomer_by_categoryAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $category=$request->get('id');
+
+            $user = $em->getRepository('adminBundle:User')->findBy(array(
+                'category'=>$category
+            ));
+
+            $serializer = $this->get('serializer');
+            $array = $serializer->normalize($user);
+            return new  JsonResponse($array);
+        }else {
+            $response = json_encode(array('Error' => 'Please try later'));
+            return new Response($response, 200);
+        }
     }
 
 }

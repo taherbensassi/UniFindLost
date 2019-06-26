@@ -3,60 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="742590dd-b5ab-4841-8ec1-589104ba9402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.de.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.de.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/baseTemplate/sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/User_base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/main_base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/clients.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/clients.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/services.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/services.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/team.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/team.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/baseTemplate/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/baseTemplate/sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/category_itemes/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/information_customer/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/information_customer/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/information_customer/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/information_customer/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/user/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/user/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/User_base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/User_base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/topbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/topbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/index/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/information.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/index/information.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/itemes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/lost_itemes/itemes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/index/sidebar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/userBundle/index/user_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/userBundle/Profile/user_profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/category_itemesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/category_itemesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/found_itemesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/found_itemesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/frontend_aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/frontend_aboutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/information_customerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/information_customerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/search_areaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/search_areaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Entity/frontend_about.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Entity/frontend_about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Entity/search_area.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Entity/search_area.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/category_itemesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/category_itemesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/found_itemesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/found_itemesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/frontend_aboutType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/frontend_aboutType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/information_customerType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/information_customerType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/search_areaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/search_areaType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminBundle/Security/Provider/FOSUBUserProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Security/Provider/FOSUBUserProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/AdminBundle/search_area/imagemaps.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/AdminBundle/search_area/imagemaps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminBundle/Controller/frontend_servicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Controller/frontend_servicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminBundle/Form/frontend_servicesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminBundle/Form/frontend_servicesType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/UserBundle/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/UserBundle/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +23,26 @@
     <executablePath>composer</executablePath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/frontend_servicesType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -115,9 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/adminBundle/Form/category_itemesType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/show.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/new.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Form/information_customerType.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/category_itemesController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/CustomerBundle/information_customer/edit.html.twig" />
@@ -135,10 +104,8 @@
         <option value="$PROJECT_DIR$/src/adminBundle/Entity/search_area.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Form/found_itemesType.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Controller/foundController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/userBundle/found_itemes/found_form.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/userBundle/lost_itemes/itemes.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Security/Provider/FOSUBUserProvider.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/services.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/contact.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/team.html.twig" />
@@ -153,19 +120,24 @@
         <option value="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/frontend_aboutController.php" />
-        <option value="$PROJECT_DIR$/web/UserBundle/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/User_base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/header.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/adminBundle/user/new.html.twig" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/src/adminBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/adminBundle/user/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/topbar.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/userBundle/found_itemes/found_form.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/main_base.html.twig" />
+        <option value="$PROJECT_DIR$/web/UserBundle/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig" />
+        <option value="$PROJECT_DIR$/src/UserBundle/Controller/indexController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Controller/frontend_servicesController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/adminBundle/Form/frontend_servicesType.php" />
       </list>
     </option>
   </component>
@@ -285,7 +257,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="MainFront" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
@@ -293,8 +265,8 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="MainFront" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseTemplate" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend_about" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
@@ -302,13 +274,33 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="MainFront" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend_services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
               <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="adminBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
@@ -333,6 +325,19 @@
               <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniFindLost" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniFindLost" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="map" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -418,7 +423,7 @@
       <workItem from="1560770502698" duration="1877000" />
       <workItem from="1561128885234" duration="264000" />
       <workItem from="1561273990591" duration="2713000" />
-      <workItem from="1561488535410" duration="11190000" />
+      <workItem from="1561488535410" duration="16890000" />
     </task>
     <servers />
   </component>
@@ -428,10 +433,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300529000" />
+    <option name="totallyTimeSpent" value="306229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="-4" width="1321" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925262" visible="true" weight="0.28941175" />
       <window_info id="Structure" order="1" sideWeight="0.5007474" side_tool="true" weight="0.22980392" />
@@ -484,39 +490,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/search_areaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="148" column="20" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="20" />
-          <folding>
-            <element signature="e#4266#4291#1#PHP" expanded="true" />
-            <element signature="e#4157#4199#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/CustomerBundle/search_area/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="64" column="76" selection-start-line="64" selection-start-column="76" selection-end-line="64" selection-end-column="76" />
-          <folding>
-            <element signature="e#12#63#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/uploads/planFolder/0b5e170c447fc301c4a780b9ae32f04f.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/user/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#12#57#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/baseTemplate/sidebar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
@@ -531,22 +504,6 @@
           <folding>
             <element signature="e#12#57#0#Twig" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#374#419#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/frontend_aboutType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -650,13 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/UserBundle/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="162" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/userBundle/found_itemes/found.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -664,13 +614,6 @@
           <folding>
             <element signature="e#12#55#0#Twig" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/userBundle/found_itemes/found_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>
@@ -687,13 +630,6 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/footer.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="103" selection-start-line="14" selection-start-column="103" selection-end-line="14" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/index/section/clients.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -708,20 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/topbar.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="75" column="75" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -798,17 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/indexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="50" column="32" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="32" />
-          <folding>
-            <element signature="e#2396#2425#1#PHP" expanded="true" />
-            <element signature="e#2468#2502#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/userBundle/BaseTemplate/topbar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120">
@@ -823,26 +738,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/topbar.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/userBundle/found_itemes/found_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="53" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/UserBundle/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="1184" selection-start-line="1184" selection-end-line="1184" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/main_base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1602">
-          <caret line="89" selection-start-line="89" selection-end-line="91" />
-          <folding>
-            <element signature="e#1864#1909#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/BaseTemplate/Introsection.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/index/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="3042">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
           <folding>
             <element signature="e#12#54#0#Twig" expanded="true" />
             <element signature="n#style#0;n#spans#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/frontend_aboutType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/MainFront/index/section/about.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="96" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/indexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding>
+            <element signature="e#757#785#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Controller/frontend_servicesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+          <folding>
+            <element signature="e#792#839#0#PHP" expanded="true" />
+            <element signature="e#1652#1697#0#PHP" expanded="true" />
+            <element signature="e#2143#2189#0#PHP" expanded="true" />
+            <element signature="e#3085#3131#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_about/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="75" column="32" lean-forward="true" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adminBundle/Form/frontend_servicesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminBundle/frontend_services/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -58,11 +58,7 @@
     $(document).ready(function() {
 
 
-        $("#users").select2({
-            allowClear: true,
-            width: '100%',
-            theme: "bootstrap"
-        });
+
 
 
         /**
@@ -150,6 +146,50 @@
         init();
         /********************* END GOOGLE MAP *************/
 
+
+        /**
+         * @desc ajax query to get the places by on the category change
+         * Begin -Query
+         */
+        $('#categorselect').change(function () {
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: Routing.generate('get_listcustomer_by_category'),
+                data:{
+                        'id' :$(this).val()
+                },
+                dataType: 'json',
+                beforeSend: function() {
+                    $('#usersselect').html('<option> loading ...  </option>');
+                },
+                success: function (data) {
+                    var userselect = $('#usersselect');
+                    userselect.empty();
+                    userselect.append("<option value=''> Where ? </option>");
+
+                    $.each(data, function (index, item) {
+                        console.log(item);
+
+                        $('#usersselect').append('<option value="' + item.id + '" >' + item.username + '</option>');
+
+
+                        //$('#loading').remove();
+                    });
+
+                }
+            })
+
+
+        });
+
+
+
+        $("#usersselect").select2({
+            allowClear: true,
+            width: '100%',
+            theme: "bootstrap"
+        });
 
     });
 

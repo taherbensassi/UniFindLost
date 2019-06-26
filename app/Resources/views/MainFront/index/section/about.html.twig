@@ -12,9 +12,9 @@
                 </h3>
 
                 <ul>
-                    <li><i class="ion-android-checkmark-circle"></i> First solution fo all the customer.</li>
-                    <li><i class="ion-android-checkmark-circle"></i> We offer support in multiple languages</li>
-                    <li><i class="ion-android-checkmark-circle"></i> Our Vision is to become a unique point of reference in the Lost Property world's University because nobody should ever be set apart from its memories..</li>
+                    {% for about in abouts %}
+                    <li><i class="ion-android-checkmark-circle"></i> {{ about.descriptionSection }}.</li>
+                    {% endfor %}
                 </ul>
 
             </div>
