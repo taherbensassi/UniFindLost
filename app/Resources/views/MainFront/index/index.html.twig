@@ -1,4 +1,6 @@
-{% extends 'MainFront/BaseTemplate/User_base.html.twig' %}
+{% extends 'MainFront/BaseTemplate/main_base.html.twig' %}
+
+
 
 {% block body %}
 
@@ -21,11 +23,8 @@
         <!--==========================
           Clients Section
         ============================-->
-        {% include 'MainFront/index/section/clients.html.twig' %}
 
         <!-- #clients -->
-
-
 
 
 
@@ -48,8 +47,14 @@
     </main>
 
 {% endblock %}
+
+
 {% block javascript %}
-<script>
+
+
+    <script>
+
+
     $(document).ready(function() {
 
 
@@ -57,10 +62,93 @@
             allowClear: true,
             width: '100%',
             theme: "bootstrap"
-
-
         });
 
+
+        /**
+         * @desc google maps
+         *
+         *
+         *
+         *BEGIN
+         */
+        var locations = {{ resultat|json_encode|raw }};
+        console.log(locations);
+        lastWindow = null;
+
+        var map;
+        var markers = [];
+
+        function init() {
+
+            map = new google.maps.Map(document.getElementById('map_canvas'), {
+                zoom: 7,
+                center: new google.maps.LatLng(47.4177328, 10.7326547),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+
+            var num_markers = locations.length;
+
+            /*if u want to add specific icon
+            var icon = {
+                url: '{{ asset('UserBundle/map/markermap.png') }}',
+                scaledSize: new google.maps.Size(25, 32) ,// scaled size,
+                origin: new google.maps.Point(0, 0),
+            };
+            */
+
+            /*the basedir url */
+            var assetsBaseDir = "{{ asset('uploads/logoUser/') }}";
+
+
+            /*marker */
+            for (var i = 0; i < num_markers; i++) {
+
+                var url = Routing.generate('search', {
+                    username: locations[i][0],
+
+                });
+
+
+                markers[i] = new google.maps.Marker({
+                    position: {lat: locations[i][1], lng: locations[i][2]},
+                    map: map,
+                    html: '<spans style="font-weight: bold;float: left">'
+                            + locations[i][0] +
+                            '</spans>' +
+                            '<br>' +
+                            '<br>' +
+                            '<img  class="img-responsive" style="width: 200px;height: 90px" alt="logo"   src=' + assetsBaseDir + locations[i][3] + '>  ' +
+                                '<a class="btn btn-link btn-sm" style="float: right"  href="'+ url +'"   > ' +
+                                    'Search Now ' +
+                                '</a>',
+                    id: i,
+                });
+
+                /*Listner to close popup**/
+                google.maps.event.addListener(markers[i], 'click', function () {
+                    if (lastWindow) lastWindow.close();
+
+                    var infowindow = new google.maps.InfoWindow({
+                        id: this.id,
+                        content: this.html,
+                        position: this.getPosition(),
+                        maxWidth: 300
+
+                    });
+                    google.maps.event.addListenerOnce(infowindow, 'closeclick', function () {
+                        markers[this.id].setVisible(true);
+                    });
+                    this.setVisible(false);
+                    infowindow.open(map);
+                    lastWindow = infowindow;
+
+                });
+            }
+        }
+        init();
+        /********************* END GOOGLE MAP *************/
 
 
     });

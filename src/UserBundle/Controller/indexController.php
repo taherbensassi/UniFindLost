@@ -21,12 +21,25 @@ class indexController extends Controller
         $em = $this->getDoctrine()->getManager();
         $categorys = $em->getRepository('adminBundle:categorie_user')->findAll();
         $users = $em->getRepository('adminBundle:User')->findAll();
-
-
+                //get data
+                $array=array();
+                $all=array();
+                foreach($users as $k => $h) {
+                    $array[]= $h->getUsername();
+                    $array[]= (float)$h->getLatitude();
+                    $array[]= (float)$h->getLongitude();
+                    $array[]=$h->getPicture();
+                    $array[]=$h->getCountry();
+                    $array[]=$h->getState();
+                    $array[]= $k ;
+                    array_push($all,$array);
+                    unset($array);
+                }
 
         return $this->render('MainFront/index/index.html.twig',array(
             'categorys'=>$categorys,
             'users'=>$users,
+            'resultat'=>$all,
         ));
     }
 
@@ -35,19 +48,22 @@ class indexController extends Controller
 
 
     /**
-     * @Route("/search/",name="search",methods={"GET"})
+     * @Route("/search/{username}",name="search",options={"expose"=true})
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request,$username)
     {
         $em = $this->getDoctrine()->getManager();
-        $userId=$request->get('users');
-        $user = $em->getRepository('adminBundle:User')->find($userId);
+
+        $user = $em->getRepository('adminBundle:User')->findOneBy(array(
+            'username'=>$username
+        ));
         $categorie_user = $em->getRepository('adminBundle:categorie_user')->findOneBy(array(
             'id'=>$user->getCategory()
         ));
+
         return $this->redirectToRoute('searchQuery', array(
             'category' => $categorie_user->getName(),
-            'user' => $user->getUsername()
+            'user' => $username
         ));
 
     }
@@ -59,18 +75,15 @@ class indexController extends Controller
     public function searchQueryAction(Request $request,$user,$category)
     {
         $em = $this->getDoctrine()->getManager();
-
         $users = $em->getRepository('adminBundle:User')->findOneBy(array(
             'username'=>$user
         ));
-
+        $categortyfilter = $em->getRepository('adminBundle:category_itemes')->findAll();
         return $this->render('userBundle/index/index.html.twig',array(
             'user' => $users,
             'category' => $category,
-
-
+            'categortyfilter' => $categortyfilter,
         ));
-
     }
 
 
@@ -88,22 +101,17 @@ class indexController extends Controller
             $string = "";
             foreach ($user as $cmp) {
                 $username = $cmp->getUsername();
-
                 if (!in_array($username, $all)) {
-
                     $string .= $username;
                     $string .= ",";
                     $string .= $cmp->getCountry();
-
                     $all[] = $string;
                     $string = "";
-
                 }
             }
             $serializer = $this->get('serializer');
             $array = $serializer->normalize($all);
             return new  JsonResponse($array);
-
         }else {
             $response = json_encode(array('Error' => 'Please try later'));
             return new Response($response, 200);
@@ -122,11 +130,8 @@ class indexController extends Controller
         $users = $em->getRepository('adminBundle:User')->findOneBy(array(
             'username'=>$user
         ));
-
         //clear the token, cancel session and redirect
         $this->get("security.token_storage")->setToken(null); // Exception thrown here
-
-
         return $this->redirectToRoute('searchQuery', array(
             'category' => $category,
             'user' => $user

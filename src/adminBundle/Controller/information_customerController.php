@@ -6,11 +6,12 @@ use adminBundle\Entity\information_customer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Information_customer controller.
  *
- * @Route("information_customer")
+ * @Route("Customer/information_customer")
  */
 class information_customerController extends Controller
 {
@@ -26,7 +27,7 @@ class information_customerController extends Controller
 
         $information_customers = $em->getRepository('adminBundle:information_customer')->findAll();
 
-        return $this->render('information_customer/index.html.twig', array(
+        return $this->render('CustomerBundle/information_customer/index.html.twig', array(
             'information_customers' => $information_customers,
         ));
     }
@@ -46,12 +47,20 @@ class information_customerController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($information_customer);
-            $em->flush();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
+            $user_db = $em->getRepository('adminBundle:User')->find($user);
+            $information_customer->setUser($user_db);
+            $information_customer->setCreatedAt(new \DateTime('now'));
 
-            return $this->redirectToRoute('information_customer_show', array('id' => $information_customer->getId()));
+
+
+            $em->flush();
+            $this->get('session')->getFlashBag()->set('success', 'Created with sccess');
+            return $this->redirectToRoute('information_customer_index');
+
         }
 
-        return $this->render('information_customer/new.html.twig', array(
+        return $this->render('CustomerBundle/information_customer/new.html.twig', array(
             'information_customer' => $information_customer,
             'form' => $form->createView(),
         ));
@@ -67,7 +76,7 @@ class information_customerController extends Controller
     {
         $deleteForm = $this->createDeleteForm($information_customer);
 
-        return $this->render('information_customer/show.html.twig', array(
+        return $this->render('CustomerBundle/information_customer/show.html.twig', array(
             'information_customer' => $information_customer,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -88,10 +97,13 @@ class information_customerController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('information_customer_edit', array('id' => $information_customer->getId()));
-        }
+            $this->get('session')->getFlashBag()->set('success', 'Update with sccess');
+            return $this->redirectToRoute('information_customer_index');
 
-        return $this->render('information_customer/edit.html.twig', array(
+
+            }
+
+        return $this->render('CustomerBundle/information_customer/edit.html.twig', array(
             'information_customer' => $information_customer,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -132,5 +144,28 @@ class information_customerController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    //delet category method
+    /**
+     *
+     * @Route("/delete_information/{id}", name="delete_information",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:information_customer')->find($id);
+            $name= $delet->getHeading();
+            $em->remove($delet);
+            $em->flush();
+            $response = json_encode(array('information' => $name,'status'=>'Has been deleted'));
+            return new Response($response, 200);
+        }else{
+            $response = json_encode(array('status' => 'error'));
+            return new Response($response, 404);
+        }
     }
 }

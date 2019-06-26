@@ -1,0 +1,171 @@
+{% extends 'userBundle/BaseTemplate/User_base.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('UserBundle/css/profile.css') }}">
+    <style>
+        body {
+            background: #f8f8f8;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+
+
+    <main id="main" style="    padding: 14px;">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="profile-card-4 z-depth-3">
+                        <div class="card">
+                            <div class="card-body text-center bg-primary rounded-top">
+                                <div class="user-box">
+                                    <img src="{{ absolute_url(app.user.picture) }}" alt="user avatar">
+                                </div>
+                                <h5 class="mb-1 text-white">{{ app.user.lastname }} </h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group shadow-none">
+
+                                    <li class="list-group-item">
+                                        <div class="list-icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="list-details">
+                                            <span>{{ app.user.email }}</span>
+                                            <small>Email Address</small>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="list-icon">
+                                            <i class="fa fa-globe"></i>
+                                        </div>
+                                        <div class="list-details">
+                                            <span>Connected By</span>
+                                            <small>
+                                                {% if app.user.googleid is not null%}
+                                                Google
+                                                {% else %}
+                                                Facebook
+                                                {% endif %}
+
+                                            </small>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!--
+                                <div class="row text-center mt-4">
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">154</h4>
+                                        <small class="mb-0 font-weight-bold">Projects</small>
+                                    </div>
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">2.2k</h4>
+                                        <small class="mb-0 font-weight-bold">Followers</small>
+                                    </div>
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">9.1k</h4>
+                                        <small class="mb-0 font-weight-bold">Views</small>
+                                    </div>
+                                </div>
+                                !-->
+                            </div>
+                            <!--
+                            <div class="card-footer text-center">
+                                <a href="javascript:void()" class="btn-social btn-facebook waves-effect waves-light m-1"><i class="fa fa-facebook"></i></a>
+                                <a href="javascript:void()" class="btn-social btn-google-plus waves-effect waves-light m-1"><i class="fa fa-google-plus"></i></a>
+                                <a href="javascript:void()" class="list-inline-item btn-social btn-behance waves-effect waves-light"><i class="fa fa-behance"></i></a>
+                                <a href="javascript:void()" class="list-inline-item btn-social btn-dribbble waves-effect waves-light"><i class="fa fa-dribbble"></i></a>
+                            </div>
+                            !-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card z-depth-3">
+                        <div class="card-body">
+                            <ul class="nav nav-pills nav-pills-primary nav-justified">
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">Found Items</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Lost Items</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Message</span></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-3">
+                                <div class="tab-pane active show" id="profile">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+
+
+                                            <!--Table-->
+
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                                <div class="tab-pane" id="messages">
+                                    <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+
+                                            <!--Table-->
+
+
+
+                                </div>
+                                <div class="tab-pane" id="edit">
+
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+{% endblock %}
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}
+
+

@@ -85,6 +85,9 @@ class RegistrationController extends BaseController
                     $user->setRoles($roles);
                 }
 
+                $user->setLatitude($request->get('lat')) ;
+                $user->setLongitude($request->get('lng')) ;
+
 
                 //created-at
                 $user->setCreatedAt(new \DateTime('now'));

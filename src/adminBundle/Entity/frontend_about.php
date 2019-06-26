@@ -24,14 +24,14 @@ class frontend_about
     /**
      * @var string
      *
-     * @ORM\Column(name="heading_section", type="string", length=255)
+     * @ORM\Column(name="heading_section", type="string", length=255,nullable=true)
      */
     private $headingSection;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description_section", type="string", length=255)
+     * @ORM\Column(name="description_section", type="string", length=1000)
      */
     private $descriptionSection;
 

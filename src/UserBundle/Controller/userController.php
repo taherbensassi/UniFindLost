@@ -21,7 +21,7 @@ class userController extends Controller
             'username'=>$userId
         ));
 
-        return $this->render('userBundle/index/user_profile.html.twig',array(
+        return $this->render('userBundle/Profile/user_profile.html.twig',array(
             'user' => $users,
             'category' => $category,
 
@@ -40,9 +40,15 @@ class userController extends Controller
             'username'=>$userId
         ));
 
+        $information = $em->getRepository('adminBundle:information_customer')->findBy(array(
+            'user'=>$users
+        ));
+
         return $this->render('userBundle/index/information.html.twig',array(
             'user' => $users,
             'category' => $category,
+            'information' => $information,
+
 
 
         ));

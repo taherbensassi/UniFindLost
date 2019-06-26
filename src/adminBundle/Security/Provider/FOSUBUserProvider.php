@@ -45,6 +45,8 @@ class FOSUBUserProvider extends BaseClass
         if (null === $user) {
             //get last and user name to connect
             $username_to_insert= $response->getFirstName()."_".$response->getLastName();
+            $picture = $response->getProfilePicture();
+
             $service = $response->getResourceOwner()->getName();
             $setter = 'set'.ucfirst($service);
             $setter_id = $setter.'Id';
@@ -62,8 +64,10 @@ class FOSUBUserProvider extends BaseClass
 
             }
             $user->setFirstname($response->getFirstName());
+            $user->setpicture($picture);
             $user->setLastname($response->getRealName());
             $user->setPassword($username);
+
             $user->setEnabled(true);
             $user->addRole("ROLE_USER_CONNECT");
             $this->userManager->updateUser($user);

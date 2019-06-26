@@ -13,7 +13,7 @@ class frontend_aboutType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('headingSection')->add('descriptionSection')->add('createdAt');
+        $builder->add('descriptionSection');
     }/**
      * {@inheritdoc}
      */

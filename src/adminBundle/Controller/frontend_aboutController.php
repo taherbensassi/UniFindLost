@@ -6,6 +6,7 @@ use adminBundle\Entity\frontend_about;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Frontend_about controller.
@@ -26,7 +27,7 @@ class frontend_aboutController extends Controller
 
         $frontend_abouts = $em->getRepository('adminBundle:frontend_about')->findAll();
 
-        return $this->render('frontend_about/index.html.twig', array(
+        return $this->render('adminBundle/frontend_about/index.html.twig', array(
             'frontend_abouts' => $frontend_abouts,
         ));
     }
@@ -45,13 +46,15 @@ class frontend_aboutController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $frontend_about->setCreatedAt(new \DateTime('now'));
             $em->persist($frontend_about);
             $em->flush();
+            $this->get('session')->getFlashBag()->set('success', 'Created with sccess');
+            return $this->redirectToRoute('frontend_about_index');
 
-            return $this->redirectToRoute('frontend_about_show', array('id' => $frontend_about->getId()));
         }
 
-        return $this->render('frontend_about/new.html.twig', array(
+        return $this->render('adminBundle/frontend_about/new.html.twig', array(
             'frontend_about' => $frontend_about,
             'form' => $form->createView(),
         ));
@@ -67,7 +70,7 @@ class frontend_aboutController extends Controller
     {
         $deleteForm = $this->createDeleteForm($frontend_about);
 
-        return $this->render('frontend_about/show.html.twig', array(
+        return $this->render('adminBundle/frontend_about/show.html.twig', array(
             'frontend_about' => $frontend_about,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -88,10 +91,12 @@ class frontend_aboutController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('frontend_about_edit', array('id' => $frontend_about->getId()));
+
+            $this->get('session')->getFlashBag()->set('success', 'Update with sccess');
+            return $this->redirectToRoute('frontend_about_index');
         }
 
-        return $this->render('frontend_about/edit.html.twig', array(
+        return $this->render('adminBundle/frontend_about/edit.html.twig', array(
             'frontend_about' => $frontend_about,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -132,5 +137,27 @@ class frontend_aboutController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    //delet about section method
+    /**
+     *
+     * @Route("/delete_section_about_us/{id}", name="delete_section_about_us",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:frontend_about')->find($id);
+            $id= $delet->getId();
+            $em->remove($delet);
+            $em->flush();
+            $response = json_encode(array('Id' => $id,'status'=>'Has been deleted'));
+            return new Response($response, 200);
+        }else{
+            $response = json_encode(array('status' => 'error'));
+            return new Response($response, 404);
+        }
     }
 }

@@ -3,6 +3,7 @@
 namespace adminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class search_areaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('url')->add('desciption')->add('html')->add('createdAt');
+        $builder->add('url',FileType::class)->add('desciption')->add('html')->add('createdAt');
     }/**
      * {@inheritdoc}
      */

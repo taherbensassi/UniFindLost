@@ -26,7 +26,7 @@ class found_itemesController extends Controller
 
         $found_itemes = $em->getRepository('adminBundle:found_itemes')->findAll();
 
-        return $this->render('found_itemes/index.html.twig', array(
+        return $this->render('adminBundle/found_itemes/index.html.twig', array(
             'found_itemes' => $found_itemes,
         ));
     }
@@ -39,7 +39,7 @@ class found_itemesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $found_iteme = new Found_iteme();
+        $found_iteme = new found_itemes();
         $form = $this->createForm('adminBundle\Form\found_itemesType', $found_iteme);
         $form->handleRequest($request);
 
@@ -51,7 +51,7 @@ class found_itemesController extends Controller
             return $this->redirectToRoute('found_itemes_show', array('id' => $found_iteme->getId()));
         }
 
-        return $this->render('found_itemes/new.html.twig', array(
+        return $this->render('adminBundle/found_itemes/new.html.twig', array(
             'found_iteme' => $found_iteme,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class found_itemesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($found_iteme);
 
-        return $this->render('found_itemes/show.html.twig', array(
+        return $this->render('adminBundle/found_itemes/show.html.twig', array(
             'found_iteme' => $found_iteme,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class found_itemesController extends Controller
             return $this->redirectToRoute('found_itemes_edit', array('id' => $found_iteme->getId()));
         }
 
-        return $this->render('found_itemes/edit.html.twig', array(
+        return $this->render('adminBundle/found_itemes/edit.html.twig', array(
             'found_iteme' => $found_iteme,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

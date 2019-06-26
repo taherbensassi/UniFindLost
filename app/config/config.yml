@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: en
     Logo_directory: '%kernel.project_dir%/web/uploads/logoUser'
+    plan_directory: '%kernel.project_dir%/web/uploads/planFolder'
         # For Facebook you'll need the client_id and secret
     facebook_app_id: 1147471725438351
     facebook_app_secret: 3b9d0ad7558809887ff662adcbff56ee

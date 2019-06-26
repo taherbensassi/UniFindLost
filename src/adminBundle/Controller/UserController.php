@@ -98,7 +98,8 @@ class UserController extends Controller
 
 
 
-
+            $user->setLatitude($request->get('lat')) ;
+            $user->setLongitude($request->get('lng')) ;
 
             //location sets
             $user->setCountry($request->get('country')) ;

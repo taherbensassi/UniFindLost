@@ -13,7 +13,7 @@ class category_itemesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('heading')->add('createdAt');
+        $builder->add('heading');
     }/**
      * {@inheritdoc}
      */

@@ -144,7 +144,7 @@
                     return parseInt( parseInt(v)*ratio );
                 });
 
-                let oDiv   = $(`<div id="imagemaps-rect-${i}-${index}" style="width:${(coords[2]-coords[0]) || options.rectWidth}px;height:${(coords[3]-coords[1]) || options.rectHeight}px;position:absolute;left:${coords[0] || 0}px;top:${coords[1] || 0}px;background-color:rgba(255,255,255,0.5)" data-index="${index}">${count}</div>`);
+                let oDiv   = $(`<div id="imagemaps-rect-${i}-${index}" style="width:${(coords[2]-coords[0]) || options.rectWidth}px;height:${(coords[3]-coords[1]) || options.rectHeight}px;position:absolute;left:${coords[0] || 0}px;top:${coords[1] || 0}px;background-color:rgba(255, 0, 0, 0.49)" data-index="${index}">${count}</div>`);
                 _this.append(oDiv);
                 oDiv.draggable(options.draggableOptions);
                 oDiv.resizable(options.resizableOptions);

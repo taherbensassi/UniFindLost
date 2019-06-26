@@ -1,0 +1,166 @@
+{% extends 'userBundle/BaseTemplate/User_base.html.twig' %}
+
+{% block stylesheet %}
+
+    <!-- Include SmartWizard CSS -->
+    <link href="{{ asset('UserBundle/form/dist/css/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        a {
+            color: #007bff;
+        }
+        .avatar--md .avatar__content img{
+            width:40px;
+            height:40px;
+        }
+        body {
+            background: #f8f8f8;
+        }
+        @keyframes placeHolderShimmer{
+            0%{
+                background-position: -468px 0
+            }
+            100%{
+                background-position: 468px 0
+            }
+        }
+        .linear-background {
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: placeHolderShimmer;
+            animation-timing-function: linear;
+            background: #f6f7f8;
+            background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+            background-size: 1000px 104px;
+            height: 338px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+
+
+    <main id="main" style="    padding: 14px;">
+
+        <div class="container">
+            <div class="row">
+
+
+                <!--sideBar for search -->
+                {% include 'userBundle/found_itemes/sidebar.html.twig' %}
+
+
+                <!--main items -->
+
+                {% include 'userBundle/found_itemes/found_form.html.twig' %}
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('UserBundle/form/dist/js/jquery.smartWizard.min.js') }}"></script>
+
+    <script>
+
+
+
+
+        $(document).ready(function(){
+
+
+            setTimeout(function() {
+                $('.linear-background').remove();
+                $('#formOfFound').fadeIn('slow');
+
+            }, 500);
+
+
+            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+                //alert("You are on step "+stepNumber+" now");
+                if(stepPosition === 'first'){
+                    $("#prev-btn").addClass('disabled');
+                }else if(stepPosition === 'final'){
+                    $("#next-btn").addClass('disabled');
+                }else{
+                    $("#prev-btn").removeClass('disabled');
+                    $("#next-btn").removeClass('disabled');
+                }
+
+
+                if($('button.sw-btn-next').hasClass('disabled')){
+                    $('.sw-btn-group-extra').show(); // show the button extra only in the last page
+                }else{
+                    $('.sw-btn-group-extra').hide();
+                }
+            });
+
+            // Toolbar extra buttons
+            var btnFinish = $('<button></button>').text('Finish')
+                .addClass('btn btn-success')
+                .on('click', function(){ alert('Finish Clicked'); });
+
+
+
+            // Smart Wizard
+            $('#smartwizard').smartWizard({
+                selected: 0,
+                theme: 'default',
+                transitionEffect:'fade',
+                showStepURLhash: true,
+                toolbarSettings: {
+                    toolbarPosition: 'buttom',
+                    toolbarButtonPosition: 'end',
+                    toolbarExtraButtons: [btnFinish]
+                }
+            });
+
+
+            // External Button Events
+            $("#reset-btn").on("click", function() {
+                // Reset wizard
+                $('#smartwizard').smartWizard("reset");
+                return true;
+            });
+
+            $("#prev-btn").on("click", function() {
+                // Navigate previous
+                $('#smartwizard').smartWizard("prev");
+                return true;
+            });
+
+            $("#next-btn").on("click", function() {
+                // Navigate next
+                $('#smartwizard').smartWizard("next");
+                return true;
+            });
+
+            $("#theme_selector").on("change", function() {
+                // Change theme
+                $('#smartwizard').smartWizard("theme", $(this).val());
+                return true;
+            });
+
+            // Set selected theme on page refresh
+            $("#theme_selector").change();
+
+        });
+
+</script>
+{% endblock %}
+
+

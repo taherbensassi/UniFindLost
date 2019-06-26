@@ -31,24 +31,30 @@ class search_area
     /**
      * @var string
      *
-     * @ORM\Column(name="desciption", type="string", length=255)
+     * @ORM\Column(name="desciption", type="text",nullable=true)
      */
     private $desciption;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="html", type="string", length=255)
+     * @ORM\Column(name="html", type="text",nullable=true)
      */
     private $html;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime",nullable=true)
      */
     private $createdAt;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="adminBundle\Entity\User")
+     * @ORM\JoinColumn(name="customer_id",referencedColumnName="id",onDelete="CASCADE")
+     */
+    public $customer;
 
     /**
      * Get id
@@ -85,22 +91,6 @@ class search_area
     }
 
     /**
-     * Set desciption
-     *
-     * @param string $desciption
-     *
-     * @return search_area
-     */
-    public function setDesciption($desciption)
-    {
-        $this->desciption = $desciption;
-
-        return $this;
-    }
-
-    /**
-     * Get desciption
-     *
      * @return string
      */
     public function getDesciption()
@@ -109,28 +99,30 @@ class search_area
     }
 
     /**
-     * Set html
-     *
-     * @param string $html
-     *
-     * @return search_area
+     * @param string $desciption
      */
-    public function setHtml($html)
+    public function setDesciption($desciption)
     {
-        $this->html = $html;
-
-        return $this;
+        $this->desciption = $desciption;
     }
 
     /**
-     * Get html
-     *
      * @return string
      */
     public function getHtml()
     {
         return $this->html;
     }
+
+    /**
+     * @param string $html
+     */
+    public function setHtml($html)
+    {
+        $this->html = $html;
+    }
+
+
 
     /**
      * Set createdAt
@@ -155,5 +147,23 @@ class search_area
     {
         return $this->createdAt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * @param mixed $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+
 }
 

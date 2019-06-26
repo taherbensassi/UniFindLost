@@ -77,6 +77,22 @@ class User extends BaseUser
      */
     public $zip;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="latitude", type="string", length=255,nullable=true)
+     */
+    private $latitude;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="string", length=255,nullable=true)
+     */
+    private $longitude;
+
     /**
      * @var string
      *
@@ -373,6 +389,40 @@ class User extends BaseUser
     {
         $this->google_access_token = $google_access_token;
     }
+
+    /**
+     * @return string
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param string $latitude
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param string $longitude
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+
+
 
 
 

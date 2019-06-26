@@ -15,7 +15,7 @@
                         <div class="navbar-left">
                             <ol class="breadcrumb" style="    padding: 4px 15px;padding-top: 16px;margin-bottom: -2px;list-style: none;background-color: #f8f8f8;border-radius: 4px;">
                                 <li><a href="{{ path('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-                                <li ><a href="{{ path('search_area_index') }}">search area</a></li>
+                                <li ><a href="">search area</a></li>
                                 <li class="active">New</li>
 
                             </ol>
@@ -62,11 +62,11 @@
 
                 <div class="col-xs-12">
                     <div class="imagemaps-wrapper">
-                        <img src="{{ asset('UserBundle/csm_Lageplan_Campus_31ff566af5.png') }}" draggable="false">
+                        <img src="{{ asset('uploads/planFolder/'~picture.url) }}" draggable="false">
                     </div>
                     <div class="imagemaps-control">
                         <fieldset>
-                            <legend>Settings</legend>
+                            <legend>{{ 'settings'|trans }}</legend>
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -83,7 +83,6 @@
                                     <td>
                                         <select class="form-control area-target">
                                             <option value="_self">_self</option>
-                                            <option value="_blank">_blank</option>
                                         </select>
                                     </td>
                                     <td>
@@ -119,7 +118,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="{{ asset('AdminBundle/search_area/imagemaps.js') }}"></script>
     <script type="text/javascript">
-        $('.imagemaps-wrapper').imageMaps({
+        $(document).ready(function() {
+
+            $('.imagemaps-wrapper').imageMaps({
             addBtn: '.btn-add-map',
             // rectWidth: 100,
             // rectHeight: 60,
@@ -135,11 +136,39 @@
 
         $('.btn-get-map').on('click', function(){
             let oParent = $(this).parent().parent().parent();
+            console.log(oParent);
+
             let result  = oParent.find('.imagemaps-wrapper').clone();
             result.children('div').remove();
             // console.log(result.html());
-            console.log(result.html());
+            var data_send=result.html();
+
+
+            $.ajax({
+                url: Routing.generate('sendData'),
+                type: 'POST',
+                data: {
+                    'html': data_send,
+                    'search_area': '{{ id }}',
+                },
+                success: function(reponse) {
+                    location.reload();
+                }
+            });
+
         });
+
+
+
+
+
+
+
+
+
+        });
+
+
     </script>
 {% endblock %}
 

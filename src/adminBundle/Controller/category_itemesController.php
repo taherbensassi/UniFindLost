@@ -6,6 +6,7 @@ use adminBundle\Entity\category_itemes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Category_iteme controller.
@@ -26,7 +27,7 @@ class category_itemesController extends Controller
 
         $category_itemes = $em->getRepository('adminBundle:category_itemes')->findAll();
 
-        return $this->render('category_itemes/index.html.twig', array(
+        return $this->render('adminBundle/category_itemes/index.html.twig', array(
             'category_itemes' => $category_itemes,
         ));
     }
@@ -39,19 +40,22 @@ class category_itemesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $category_iteme = new Category_iteme();
+        $category_iteme = new category_itemes();
         $form = $this->createForm('adminBundle\Form\category_itemesType', $category_iteme);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $category_iteme->setCreatedAt(new \DateTime('now'));
+
             $em->persist($category_iteme);
             $em->flush();
 
-            return $this->redirectToRoute('category_itemes_show', array('id' => $category_iteme->getId()));
+            $this->get('session')->getFlashBag()->set('success', 'Created with sccess');
+            return $this->redirectToRoute('category_itemes_index');
         }
 
-        return $this->render('category_itemes/new.html.twig', array(
+        return $this->render('adminBundle/category_itemes/new.html.twig', array(
             'category_iteme' => $category_iteme,
             'form' => $form->createView(),
         ));
@@ -67,7 +71,7 @@ class category_itemesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($category_iteme);
 
-        return $this->render('category_itemes/show.html.twig', array(
+        return $this->render('adminBundle/category_itemes/show.html.twig', array(
             'category_iteme' => $category_iteme,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -88,10 +92,11 @@ class category_itemesController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('category_itemes_edit', array('id' => $category_iteme->getId()));
+            $this->get('session')->getFlashBag()->set('success', 'Update with sccess');
+            return $this->redirectToRoute('category_itemes_index');
         }
 
-        return $this->render('category_itemes/edit.html.twig', array(
+        return $this->render('adminBundle/category_itemes/edit.html.twig', array(
             'category_iteme' => $category_iteme,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -132,5 +137,28 @@ class category_itemesController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    //delet category method
+    /**
+     *
+     * @Route("/delete_category_item/{id}", name="delete_category_item",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:category_itemes')->find($id);
+            $name= $delet->getHeading();
+            $em->remove($delet);
+            $em->flush();
+            $response = json_encode(array('Category' => $name,'status'=>'Has been deleted'));
+            return new Response($response, 200);
+        }else{
+            $response = json_encode(array('status' => 'error'));
+            return new Response($response, 404);
+        }
     }
 }
