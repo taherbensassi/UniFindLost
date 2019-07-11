@@ -1,4 +1,8 @@
 {% extends 'adminBundle/baseTemplate/admin_base.html.twig' %}
+{% block stylesheet %}
+    <link href="{{ asset('AdminBundle/fontawsome_plugin/dist/css/fontawesome-iconpicker.css') }}" rel="stylesheet">
+
+{% endblock %}
 {% block body %}
 
     <!-- Content Header (Page header) -->
@@ -54,6 +58,9 @@
 
 
                 {{ form_start(form) }}
+
+
+
                 <div class="form-group">
                     <label for="logo">Services name</label>
                     {{ form_widget(form.serviceName, { 'attr': {'class': 'form-control' } }) }}
@@ -63,9 +70,9 @@
 
                 <div class="form-group">
                     <label for="logo">service Icon</label>
-                    {{ form_widget(form.serviceIcon, { 'attr': {'class': 'form-control' } }) }}
+                    {{ form_widget(form.serviceIcon, { 'attr': {'class': 'form-control icp icp-auto' } }) }}
                     <span class="help-block" style="color: red;">{{ form_errors(form.serviceIcon) }}</span>
-
+                    <p class="help-block">Chose icon which will be with the service in the front-end</p>
                 </div>
 
                 <div class="form-group">
@@ -95,6 +102,15 @@
     </section>
 {% endblock %}
 {% block javascript %}
+    <script src="{{ asset('AdminBundle/fontawsome_plugin/dist/js/fontawesome-iconpicker.js') }}"></script>
+    <script>
+
+
+        $(function () {
+            $('.icp-auto').iconpicker();
+        });
+    </script>
+
 
 {% endblock %}
 

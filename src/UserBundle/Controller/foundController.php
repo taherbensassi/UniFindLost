@@ -34,10 +34,46 @@ class foundController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $userConnect = $this->get('security.token_storage')->getToken()->getUser();
+
+
+            $photo = $form['photo']->getData();
+            // this condition is needed because the 'brochure' field is not required
+            // so the PDF file must be processed only when a file is uploaded
+            if ($photo) {
+                $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$photo->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $photo->move(
+                        $this->getParameter('found_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $found_iteme->setPhoto($newFilename);
+            }
+
+            $foundArea = $request->get('foundmap');
+            $found_iteme->setFoundArea($foundArea);
+            $found_iteme->setUser($userConnect);
+
+
+
+
+
+
             $em->persist($found_iteme);
             $em->flush();
-
-            return $this->redirectToRoute('found_itemes_show', array('id' => $found_iteme->getId()));
+            $this->get('session')->getFlashBag()->set('success', 'added with sccess');
+            return $this->redirectToRoute('Profile_user_connect', array('category' =>$category,'userId'=>$users));
         }
 
 
@@ -51,6 +87,10 @@ class foundController extends Controller
 
         ));
     }
+
+
+
+
 
 
 

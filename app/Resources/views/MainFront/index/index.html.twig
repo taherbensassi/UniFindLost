@@ -1,91 +1,27 @@
 {% extends 'MainFront/BaseTemplate/main_base.html.twig' %}
-
-
-
 {% block body %}
-
-    <main id="main">
-
-        <!--==========================
-          About Section
-        ============================-->
+<main id="main">
         {% include 'MainFront/index/section/about.html.twig' %}
-
-        <!-- #about -->
-
-        <!--==========================
-          Services Section
-        ============================-->
         {% include 'MainFront/index/section/services.html.twig' %}
-
-        <!-- #services -->
-
-        <!--==========================
-          Clients Section
-        ============================-->
-
-        <!-- #clients -->
-
-
-
-
-        <!--==========================
-          Our Team Section
-        ============================-->
         {% include 'MainFront/index/section/team.html.twig' %}
-
-
-
-
-        <!--==========================
-          Contact Section
-        ============================-->
         {% include 'MainFront/index/section/contact.html.twig' %}
-
-        <!-- #contact -->
-
-    </main>
-
+</main>
 {% endblock %}
-
-
 {% block javascript %}
-
-
-    <script>
-
-
-    $(document).ready(function() {
-
-
-
-
-
-        /**
-         * @desc google maps
-         *
-         *
-         *
-         *BEGIN
-         */
+<script>
+$(document).ready(function() {
         var locations = {{ resultat|json_encode|raw }};
         console.log(locations);
         lastWindow = null;
-
         var map;
         var markers = [];
-
-        function init() {
-
+        function initMap() {
             map = new google.maps.Map(document.getElementById('map_canvas'), {
                 zoom: 7,
                 center: new google.maps.LatLng(47.4177328, 10.7326547),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
-
-
             var num_markers = locations.length;
-
             /*if u want to add specific icon
             var icon = {
                 url: '{{ asset('UserBundle/map/markermap.png') }}',
@@ -93,20 +29,13 @@
                 origin: new google.maps.Point(0, 0),
             };
             */
-
             /*the basedir url */
             var assetsBaseDir = "{{ asset('uploads/logoUser/') }}";
-
-
             /*marker */
             for (var i = 0; i < num_markers; i++) {
-
                 var url = Routing.generate('search', {
                     username: locations[i][0],
-
                 });
-
-
                 markers[i] = new google.maps.Marker({
                     position: {lat: locations[i][1], lng: locations[i][2]},
                     map: map,
@@ -121,17 +50,14 @@
                                 '</a>',
                     id: i,
                 });
-
                 /*Listner to close popup**/
                 google.maps.event.addListener(markers[i], 'click', function () {
                     if (lastWindow) lastWindow.close();
-
                     var infowindow = new google.maps.InfoWindow({
                         id: this.id,
                         content: this.html,
                         position: this.getPosition(),
                         maxWidth: 300
-
                     });
                     google.maps.event.addListenerOnce(infowindow, 'closeclick', function () {
                         markers[this.id].setVisible(true);
@@ -139,14 +65,11 @@
                     this.setVisible(false);
                     infowindow.open(map);
                     lastWindow = infowindow;
-
                 });
             }
         }
-        init();
+        initMap();
         /********************* END GOOGLE MAP *************/
-
-
         /**
          * @desc ajax query to get the places by on the category change
          * Begin -Query
@@ -169,22 +92,12 @@
                     userselect.append("<option value=''> Where ? </option>");
 
                     $.each(data, function (index, item) {
-                        console.log(item);
-
                         $('#usersselect').append('<option value="' + item.id + '" >' + item.username + '</option>');
-
-
                         //$('#loading').remove();
                     });
-
                 }
             })
-
-
         });
-
-
-
         $("#usersselect").select2({
             allowClear: true,
             width: '100%',

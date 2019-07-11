@@ -27,6 +27,10 @@ class indexController extends Controller
         /******* abouts front-end*****/
         $abouts = $em->getRepository('adminBundle:frontend_about')->findAll();
 
+        /******* abouts front-end*****/
+        $services = $em->getRepository('adminBundle:frontend_services')->findAll();
+
+
 
         /******* users*****/
         $users = $em->getRepository('adminBundle:User')->findAll();
@@ -53,6 +57,7 @@ class indexController extends Controller
             'users'=>$users,
             'resultat'=>$maps,
             'abouts'=>$abouts,
+            'services'=>$services,
         ));
     }
 
@@ -97,9 +102,15 @@ class indexController extends Controller
         $categorie_user = $em->getRepository('adminBundle:categorie_user')->findOneBy(array(
             'id'=>$user->getCategory()
         ));
+        /******* get information relaed to ustomer*****/
+        $information = $em->getRepository('adminBundle:information_customer')->findOneBy(array(
+            'user'=>$user
+        ));
         return $this->redirectToRoute('searchQuery', array(
             'category' => $categorie_user->getName(),
-            'user' => $user->getUsername()
+            'user' => $user->getUsername(),
+            'information' => $information,
+
         ));
 
     }
@@ -115,10 +126,18 @@ class indexController extends Controller
             'username'=>$user
         ));
         $categortyfilter = $em->getRepository('adminBundle:category_itemes')->findAll();
+
+
+        /******* get information relaed to ustomer*****/
+        $information = $em->getRepository('adminBundle:information_customer')->findOneBy(array(
+            'user'=>$users
+        ));
+
         return $this->render('userBundle/index/index.html.twig',array(
             'user' => $users,
             'category' => $category,
             'categortyfilter' => $categortyfilter,
+            'information' => $information,
         ));
     }
 

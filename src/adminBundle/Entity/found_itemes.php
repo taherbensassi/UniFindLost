@@ -52,14 +52,14 @@ class found_itemes
     /**
      * @var string
      *
-     * @ORM\Column(name="other_info", type="string", length=255)
+     * @ORM\Column(name="other_info", type="string", length=255,nullable=true)
      */
     private $otherInfo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contact_info", type="string", length=255)
+     * @ORM\Column(name="contact_info", type="string", length=255,nullable=true)
      */
     private $contactInfo;
 

@@ -6,7 +6,12 @@
 <div class="col-lg-9 linear-background " id="formOfFound" >
 </div>
 <div class="col-lg-9 " id="formOfFound" style="display: none" >
-
+    <nav class="mr-auto d-flex align-items-center" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="active breadcrumb-item" aria-current="page"><a href="#"><i class="fa fa-home"></i></a></li>
+            <li class="active breadcrumb-item" aria-current="page">Found itemes</li>
+        </ol>
+    </nav>
 
     {{ form_start(form) }}
 
@@ -52,6 +57,14 @@
                         {{ map.html |raw }}
 
                     {% endautoescape %}
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Information</label>
+                        <select class="form-control" id="foundmap" name="foundmap">
+                            <option value="">Where did you exactly found it ?</option>
+                            <option value="all">Not sure</option>
+
+                        </select>
+                    </div>
 
                 </div>
 

@@ -6,44 +6,18 @@
                 Our vision is to provide the largest and most efficient service which delivers the best possible service so our clients and customers trust us with their digital lives.
             </p>
         </div>
-
         <div class="row">
-
+            {% for service in services %}
             <div class="col-lg-6">
                 <div class="box wow fadeInLeft">
-                        <div class="icon"><i class="fa fa-globe"></i></div>
-                    <h4 class="title"><a href="">GLOBAL</a></h4>
+                        <div class="icon"><i class="fa ~ {{ service.serviceIcon }}"></i></div>
+                    <h4 class="title"><a href="">{{ service.serviceName }}</a></h4>
                     <p class="description">
-                        Building a new digital lost and found backbone for the world's University. One place for one search.</p>
+                    {{ service.serviceDescription }}
+                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInRight">
-                    <div class="icon"><i class="fa fa-shield"></i></div>
-                    <h4 class="title"><a href="">TRUST</a></h4>
-                    <p class="description">Providing a personalised experience for our customers sales and ongoing innovations and creativity..</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                    <h4 class="title"><a href="">SIMPLE & EFFECTIVE</a></h4>
-                    <p class="description">Our security tags make it easy for finders to contact us from anywhere in the world..</p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="box wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="icon"><i class="fa fa-user-circle"></i></div>
-                    <h4 class="title"><a href="">PRODUCTIVE</a></h4>
-                    <p class="description">Avoid any productivity loss caused by losing your items and save your time.</p>
-                </div>
-            </div>
-
-
+            {% endfor %}
         </div>
-
     </div>
 </section>

@@ -1,7 +1,7 @@
-
-
-
 {% extends 'adminBundle/baseTemplate/admin_base.html.twig' %}
+{% block stylesheet %}
+    <link href="{{ asset('AdminBundle/summernote/summernote/summernote.css') }}" rel="stylesheet">
+{% endblock %}
 {% block body %}
 
     <!-- Content Header (Page header) -->
@@ -90,7 +90,13 @@
     </section>
 {% endblock %}
 {% block javascript %}
+    <script src="{{ asset('AdminBundle/summernote/summernote/summernote.js') }}"></script>
 
+    <script>
+
+    $('#adminbundle_information_customer_text').summernote();
+
+</script>
 {% endblock %}
 
 

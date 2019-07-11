@@ -1,11 +1,7 @@
 {% extends 'userBundle/BaseTemplate/User_base.html.twig' %}
-
 {% block stylesheet %}
 
-    <!-- Include SmartWizard CSS -->
     <link href="{{ asset('UserBundle/form/dist/css/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
-
-
     <style>
         a {
             color: #007bff;
@@ -42,11 +38,7 @@
     </style>
 {% endblock %}
 {% block body %}
-
-
-
     <main id="main" style="    padding: 14px;">
-
         <div class="container">
             <div class="row">
 
@@ -64,32 +56,15 @@
 
             </div>
         </div>
-
     </main>
-
-
-
-
-
 {% endblock %}
 {% block javascript %}
-    <script type="text/javascript" src="{{ asset('UserBundle/form/dist/js/jquery.smartWizard.min.js') }}"></script>
-
     <script>
-
-
-
-
-        $(document).ready(function(){
-
-
             setTimeout(function() {
                 $('.linear-background').remove();
                 $('#formOfFound').fadeIn('slow');
 
             }, 500);
-
-
             $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
                 //alert("You are on step "+stepNumber+" now");
                 if(stepPosition === 'first'){
@@ -111,11 +86,7 @@
 
             // Toolbar extra buttons
             var btnFinish = $('<button></button>').text('Finish')
-                .addClass('btn btn-success')
-                .on('click', function(){ alert('Finish Clicked'); });
-
-
-
+                .addClass('btn btn-success');
             // Smart Wizard
             $('#smartwizard').smartWizard({
                 selected: 0,
@@ -149,16 +120,14 @@
                 return true;
             });
 
-            $("#theme_selector").on("change", function() {
-                // Change theme
-                $('#smartwizard').smartWizard("theme", $(this).val());
-                return true;
+            var allOfThem = $('area');
+            var SelectFound= $('#foundmap')
+            allOfThem.each(function( index ) {
+
+                SelectFound.append('<option value="' + $( this ).attr("href") + '" >' + $( this ).attr("href") + '</option>');
             });
 
-            // Set selected theme on page refresh
-            $("#theme_selector").change();
 
-        });
 
 </script>
 {% endblock %}

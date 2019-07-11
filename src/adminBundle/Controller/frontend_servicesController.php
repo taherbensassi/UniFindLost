@@ -6,6 +6,7 @@ use adminBundle\Entity\frontend_services;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Frontend_service controller.
@@ -48,8 +49,8 @@ class frontend_servicesController extends Controller
             $em->persist($frontend_service);
             $em->flush();
 
-            return $this->redirectToRoute('frontend_services_show', array('id' => $frontend_service->getId()));
-        }
+            $this->get('session')->getFlashBag()->set('success', 'Created with sccess');
+            return $this->redirectToRoute('frontend_services_index');        }
 
         return $this->render('adminBundle/frontend_services/new.html.twig', array(
             'frontend_service' => $frontend_service,
@@ -88,7 +89,8 @@ class frontend_servicesController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('frontend_services_edit', array('id' => $frontend_service->getId()));
+            $this->get('session')->getFlashBag()->set('success', 'Created with sccess');
+            return $this->redirectToRoute('frontend_services_index');
         }
 
         return $this->render('adminBundle/frontend_services/edit.html.twig', array(
@@ -132,5 +134,28 @@ class frontend_servicesController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    //delet about section method
+    /**
+     *
+     * @Route("/delete_services_about_us/{id}", name="delete_section_services",options={"expose"=true})
+     * @Method({"DELETE"})
+     */
+    public function delete_services_about_usAction($id,Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $delet = $em->getRepository('adminBundle:frontend_services')->find($id);
+            $id= $delet->getId();
+            $em->remove($delet);
+            $em->flush();
+            $response = json_encode(array('Id' => $id,'status'=>'Has been deleted'));
+            return new Response($response, 200);
+        }else{
+            $response = json_encode(array('status' => 'error'));
+            return new Response($response, 404);
+        }
     }
 }

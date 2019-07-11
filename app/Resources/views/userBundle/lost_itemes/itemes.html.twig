@@ -1,25 +1,56 @@
+<style>
+    #parent { float: left; width: 100% }
+    span.clear { clear: left; display: block; }
+
+</style>
 <div class="col-lg-9" >
     <div class="d-flex flex-column flex-md-row mb-3 mb-md-0">
         <nav class="mr-auto d-flex align-items-center" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="active breadcrumb-item" aria-current="page"><a href="/"><i class="fa fa-home"></i></a></li>
-                <li class="active breadcrumb-item" aria-current="page">Lost Items</li>
+                <li class="active breadcrumb-item" aria-current="page">Found & Lost itemes</li>
             </ol>
         </nav>
         <div role="toolbar" class="btn-toolbar">
             <div role="group" class="btn-group">
-
                 <!--show button if connected -->
                 {% if is_granted('ROLE_USER_CONNECT') %}
-                <a  href="{{ path('found-frontend-create',{'category':category,'user':user}) }}" class="align-self-center btn btn-primary"><i class="fa-fw fa fa-plus"></i>I've found item</a>
+                <a  href="{{ path('found-frontend-create',{'category':category,'user':user}) }}" class="align-self-center btn btn-primary" style="    margin-right: 4px;" ><i class="fa-fw fa fa-plus"></i>I've found item</a>
                 {% else %}
-                <button id="tooltipAddNew"  class="align-self-center btn btn-primary" ><i class="fa-fw fa fa-plus"></i>I've found item</button>
+                <button id="tooltipAddNew"  class="align-self-center btn btn-primary" style="    margin-right: 4px;" ><i class="fa-fw fa fa-plus" ></i>I've found item</button>
                 {% endif %}
 
-
+                {% if is_granted('ROLE_USER_CONNECT') %}
+                    <a  href="{{ path('lost-frontend-create',{'category':category,'user':user}) }}" class="align-self-center btn btn-success" ><i class="fa-fw fa fa-plus"></i>I've lost item</a>
+                {% else %}
+                    <button id="tooltipAddlost"  class="align-self-center btn btn-success"  ><i class="fa-fw fa fa-plus"></i>I've lost item</button>
+                {% endif %}
             </div>
         </div>
     </div>
+    <div class="mb-3">
+        <div class="jumbotron parent" >
+            {% if information is defined and information is not null %}
+            <h1 class="display-6">{{ information.heading }}!</h1>
+            <p class="lead floated_child" >
+
+                {% autoescape 'html' %}
+                    {{ information.text|raw }}
+                {% endautoescape %}
+
+
+                </p>
+            <hr class="my-4">
+            <p>Please check our web site  .</p>
+            <p class="lead">
+                <a class="btn btn-link " href="{{ user.url }}" target="_blank"> {{ user.url }}</a>
+            </p>
+            {% endif %}
+            <span class="clear"></span>
+        </div>
+    </div>
+
+    <!--
     <div class="mb-3 Card_custom-card--border_5wJKy card">
         <div class="table-responsive-xl">
             <table class="mb-0 table table-hover">
@@ -34,7 +65,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <!--
+
                     <td class="align-middle">
                         <div class="text-inverse"><a href="#"><i class="fa fa-fw fa-lg fa-star-o"></i></a></div>
                     </td>
@@ -64,7 +95,7 @@
                             </div>
                         </div>
                     </td>
-                    -->
+
                 </tr>
 
 
@@ -88,4 +119,5 @@
             </nav>
         </div>
     </div>
+    -->
 </div>

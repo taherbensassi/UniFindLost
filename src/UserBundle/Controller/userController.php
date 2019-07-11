@@ -17,13 +17,21 @@ class userController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        /******* get the customer *****/
         $users = $em->getRepository('adminBundle:User')->findOneBy(array(
             'username'=>$userId
         ));
+        $userConnectId = $this->get('security.token_storage')->getToken()->getUser();
+        //$userConnect = $em->getRepository('adminBundle:User')->find($userConnectId);
+        $foundItem = $em->getRepository('adminBundle:found_itemes')->findBy(array(
+            'user'=>$userConnectId
+        ));
+
 
         return $this->render('userBundle/Profile/user_profile.html.twig',array(
             'user' => $users,
             'category' => $category,
+            'found_itemes' => $foundItem,
 
 
         ));

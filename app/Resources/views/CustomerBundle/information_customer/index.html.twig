@@ -81,7 +81,6 @@ width: 100%;">
 
 
                         <th>Heading</th>
-                        <th>Text</th>
                         <th>Createdat</th>
                         <th>Actions</th>
                     </tr>
@@ -90,7 +89,6 @@ width: 100%;">
                     {% for information_customer in information_customers %}
                         <tr>
                             <td>{{ information_customer.heading }}</td>
-                            <td>{{ information_customer.text }}</td>
                             <td>{% if information_customer.createdAt %}{{ information_customer.createdAt|date('d-m-Y H:i:s') }}{% endif %}</td>
                             <td>
                                 <ul>

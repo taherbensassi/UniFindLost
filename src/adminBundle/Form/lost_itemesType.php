@@ -1,0 +1,56 @@
+<?php
+
+namespace adminBundle\Form;
+
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class lost_itemesType extends AbstractType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('name')
+            ->add('photo',FileType::class)
+            ->add('lostOn',DateType::class)
+            ->add('lostArea')
+            ->add('otherInfo',TextareaType::class)
+            ->add('contactInfo')
+            ->add('category',EntityType::class,array(
+                'required'=>true,
+                'placeholder'=>'Select category',
+                'class'=>'adminBundle\Entity\category_itemes',
+                'query_builder'=>function (EntityRepository $er){
+                    return  $er->createQueryBuilder('u');
+                },
+                'choice_label' => 'heading',
+            ));
+
+    }/**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'adminBundle\Entity\lost_itemes'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'adminbundle_lost_itemes';
+    }
+
+
+}
